@@ -1,634 +1,1612 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>Interview Prep</title>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
---bg:#f5f3ef;
---surface:#ffffff;
---surface-alt:#f9f8f6;
---text:#2c2c2c;
---text-sec:#6b6560;
---text-ter:#9a9490;
---accent:#3d7a5f;
---accent-light:#e8f2ec;
---accent-dark:#2d5c47;
---border:#e8e4df;
---shadow:0 1px 3px rgba(0,0,0,0.06),0 2px 8px rgba(0,0,0,0.04);
---shadow-lg:0 4px 12px rgba(0,0,0,0.08),0 1px 3px rgba(0,0,0,0.04);
---radius:14px;
---radius-sm:10px;
---radius-xs:8px;
---safe-top:env(safe-area-inset-top,0px);
---safe-bottom:env(safe-area-inset-bottom,0px);
---safe-left:env(safe-area-inset-left,0px);
---safe-right:env(safe-area-inset-right,0px);
-}
-html,body{
-height:100%;width:100%;overflow:hidden;
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;
-background:var(--bg);color:var(--text);
--webkit-font-smoothing:antialiased;
--webkit-text-size-adjust:100%;
--webkit-tap-highlight-color:transparent;
-}
-.app{
-display:flex;flex-direction:column;
-height:100dvh;height:100vh;
-max-width:520px;margin:0 auto;
-padding-top:var(--safe-top);
-padding-bottom:var(--safe-bottom);
-padding-left:var(--safe-left);
-padding-right:var(--safe-right);
-}
-@supports(height:100dvh){.app{height:100dvh}}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servier Medical Representative Interview Prep</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --border: rgba(255,255,255,0.10);
+      --shadow: 0 20px 50px rgba(0,0,0,0.25);
+      --warning: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #0b1220 0%, #111827 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 18px 72px;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(56,189,248,0.14), rgba(34,197,94,0.10));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.1;
+    }
+    .subtitle {
+      margin: 0;
+      color: var(--text);
+      max-width: 900px;
+      font-size: 1rem;
+      opacity: 0.92;
+    }
+    .top-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .panel {
+      background: rgba(17, 24, 39, 0.88);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .panel h2, .panel h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    .panel p, .panel li {
+      color: #dbe4ee;
+    }
+    .panel ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .span-7 { grid-column: span 7; }
+    .span-5 { grid-column: span 5; }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 24px 0 10px;
+      align-items: center;
+    }
+    input[type="search"] {
+      flex: 1 1 280px;
+      min-width: 220px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      padding: 12px 14px;
+      outline: none;
+      font-size: 0.98rem;
+    }
+    input[type="search"]::placeholder,
+    textarea::placeholder {
+      color: #7f8da4;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      padding: 11px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.18s ease;
+    }
+    .btn:hover,
+    .mini-btn:hover,
+    .toggle:hover {
+      transform: translateY(-1px);
+      border-color: rgba(56,189,248,0.5);
+      background: rgba(56,189,248,0.10);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(56,189,248,0.18), rgba(34,197,94,0.14));
+    }
+    .section-title {
+      margin: 30px 0 14px;
+      font-size: 1.2rem;
+      color: #f8fafc;
+    }
+    .qa-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .card {
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .card-head {
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    }
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      background: rgba(56,189,248,0.08);
+    }
+    .question {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+    .toggle {
+      white-space: nowrap;
+      border: 1px solid transparent;
+      background: rgba(56,189,248,0.12);
+      color: #dff6ff;
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.18s ease;
+    }
+    .answer {
+      display: none;
+      padding: 0 18px 18px;
+      color: #dbe4ee;
+    }
+    .answer.open {
+      display: block;
+      animation: fade 0.2s ease;
+    }
+    .editor-block {
+      margin-top: 14px;
+    }
+    .label {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+    .editor {
+      width: 100%;
+      min-height: 148px;
+      resize: vertical;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      padding: 14px;
+      font: inherit;
+      line-height: 1.6;
+      outline: none;
+    }
+    .notes-editor {
+      min-height: 120px;
+    }
+    .editor:focus {
+      border-color: rgba(56,189,248,0.6);
+      box-shadow: 0 0 0 3px rgba(56,189,248,0.12);
+    }
+    .editor-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 9px;
+    }
+    .save-hint {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .mini-btn {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.18s ease;
+    }
+    .coaching {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--accent-2);
+      background: rgba(34,197,94,0.08);
+      border-radius: 10px;
+      color: #e9fff2;
+      font-size: 0.95rem;
+    }
+    .footer-note {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+    .hidden {
+      display: none !important;
+    }
+    .note-banner {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(245, 158, 11, 0.10);
+      border: 1px solid rgba(245, 158, 11, 0.18);
+      color: #fde7b0;
+      font-size: 0.93rem;
+    }
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 860px) {
+      .span-7, .span-5 { grid-column: span 12; }
+      .card-head { flex-direction: column; align-items: flex-start; }
+      .toggle { width: 100%; }
+      .editor-actions { align-items: flex-start; }
+    }
 
-/* HEADER */
-.header{
-padding:10px 16px 6px;
-flex-shrink:0;
-}
-.header-top{
-display:flex;align-items:center;justify-content:space-between;
-margin-bottom:6px;
-}
-.app-title{
-font-size:17px;font-weight:700;letter-spacing:-0.3px;
-color:var(--text);
-}
-.q-counter{
-font-size:13px;color:var(--text-sec);font-weight:500;
-}
-.q-select-row{
-display:flex;align-items:center;gap:8px;
-}
-.q-select{
-flex:1;
-appearance:none;-webkit-appearance:none;
-background:var(--surface);
-border:1px solid var(--border);
-border-radius:var(--radius-xs);
-padding:8px 32px 8px 12px;
-font-size:14px;color:var(--text);
-font-family:inherit;
-cursor:pointer;
-background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6560' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-background-repeat:no-repeat;
-background-position:right 12px center;
-white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.q-select:focus{outline:2px solid var(--accent);outline-offset:-1px}
+    .mobile-practice-btn {
+      background: linear-gradient(135deg, rgba(56,189,248,0.22), rgba(34,197,94,0.16));
+    }
+    .practice-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      background: rgba(3, 7, 18, 0.92);
+      backdrop-filter: blur(16px);
+      padding: 12px;
+    }
+    .practice-modal.open {
+      display: block;
+    }
+    .practice-shell {
+      height: calc(100dvh - 24px);
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 12px;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(17, 24, 39, 0.99));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    .practice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .practice-kicker {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .practice-count {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .practice-question {
+      margin: 0;
+      font-size: clamp(1.18rem, 2.9vw, 1.5rem);
+      line-height: 1.25;
+      color: #f8fafc;
+    }
+    .practice-close {
+      flex-shrink: 0;
+    }
+    .practice-card {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 14px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(255,255,255,0.035);
+      padding: 16px;
+      overflow: hidden;
+    }
+    .practice-prompt-text {
+      margin: 0;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      line-height: 1.45;
+      color: #dbe4ee;
+      white-space: pre-wrap;
+    }
+    .practice-answer-stage {
+      min-height: 0;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .practice-answer-wrap {
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .practice-answer-status {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+    .practice-answer-fitbox {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .practice-answer-text {
+      width: 100%;
+      white-space: pre-wrap;
+      color: #f8fafc;
+      font-size: 24px;
+      line-height: 1.42;
+      word-break: break-word;
+      text-align: left;
+    }
+    .practice-answer-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+      gap: 12px;
+      color: #dbe4ee;
+      padding: 12px;
+    }
+    .practice-answer-placeholder .placeholder-title {
+      font-size: clamp(1.15rem, 3vw, 1.4rem);
+      font-weight: 700;
+      color: #f8fafc;
+    }
+    .practice-answer-placeholder .placeholder-copy {
+      max-width: 34ch;
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .practice-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 12px;
+    }
+    .practice-nav {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .practice-nav .btn {
+      width: 100%;
+      min-height: 48px;
+    }
+    .practice-spacer {
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: right;
+    }
+    .mobile-hint {
+      display: none;
+      margin-top: 12px;
+      color: #dbe4ee;
+      font-size: 0.93rem;
+    }
+    @media (max-width: 860px) {
+      .mobile-hint {
+        display: block;
+      }
+      .practice-modal {
+        padding: 0;
+      }
+      .practice-shell {
+        height: 100dvh;
+        border-radius: 0;
+        max-width: none;
+        padding: calc(12px + env(safe-area-inset-top, 0px)) 12px calc(12px + env(safe-area-inset-bottom, 0px));
+      }
+      .practice-card {
+        padding: 14px;
+      }
+      .practice-answer-stage {
+        padding: 12px;
+      }
+      .practice-actions {
+        position: sticky;
+        bottom: 0;
+        grid-template-columns: 1fr;
+        background: linear-gradient(180deg, rgba(15,23,42,0), rgba(15,23,42,0.97) 32%);
+        padding-top: 10px;
+      }
+      .practice-spacer {
+        text-align: center;
+      }
+      .practice-answer-text {
+        font-size: 26px;
+        line-height: 1.38;
+      }
+    }
 
-/* TABS */
-.tabs{
-display:flex;gap:4px;
-padding:0 16px;margin-bottom:8px;
-flex-shrink:0;
-}
-.tab{
-flex:1;
-padding:9px 0;
-border:none;background:transparent;
-font-size:13px;font-weight:600;
-color:var(--text-ter);
-cursor:pointer;
-border-radius:var(--radius-xs);
-transition:all 0.2s ease;
-font-family:inherit;
-letter-spacing:0.1px;
-position:relative;
-}
-.tab.active{
-background:var(--surface);
-color:var(--accent-dark);
-box-shadow:var(--shadow);
-}
-.tab:active{transform:scale(0.97)}
-
-.tab .dot{
-display:inline-block;width:5px;height:5px;
-border-radius:50%;background:var(--accent);
-margin-left:4px;vertical-align:middle;
-opacity:0;transition:opacity 0.2s;
-}
-.tab .dot.visible{opacity:1}
-
-/* CONTENT AREA */
-.content{
-flex:1;min-height:0;
-padding:0 16px 8px;
-display:flex;flex-direction:column;
-}
-.panel{
-flex:1;min-height:0;
-display:none;flex-direction:column;
-}
-.panel.active{display:flex}
-
-/* Question Panel */
-.q-card{
-background:var(--surface);
-border-radius:var(--radius);
-padding:20px;
-box-shadow:var(--shadow);
-flex:1;min-height:0;
-display:flex;flex-direction:column;
-justify-content:center;
-overflow-y:auto;
--webkit-overflow-scrolling:touch;
-}
-.q-label{
-font-size:11px;font-weight:700;
-text-transform:uppercase;letter-spacing:1px;
-color:var(--accent);margin-bottom:10px;
-}
-.q-text{
-font-size:18px;line-height:1.5;
-font-weight:600;color:var(--text);
-letter-spacing:-0.2px;
-}
-.reveal-btn{
-margin-top:16px;
-width:100%;padding:14px;
-background:var(--accent);color:#fff;
-border:none;border-radius:var(--radius-sm);
-font-size:15px;font-weight:600;
-cursor:pointer;font-family:inherit;
-transition:all 0.15s ease;
-letter-spacing:0.1px;
-}
-.reveal-btn:active{transform:scale(0.98);background:var(--accent-dark)}
-
-/* Answer Panel */
-.a-card{
-background:var(--surface);
-border-radius:var(--radius);
-box-shadow:var(--shadow);
-flex:1;min-height:0;
-display:flex;flex-direction:column;
-overflow:hidden;
-}
-.a-header{
-display:flex;align-items:center;justify-content:space-between;
-padding:12px 16px 8px;
-flex-shrink:0;
-border-bottom:1px solid var(--border);
-}
-.a-title{
-font-size:12px;font-weight:700;
-text-transform:uppercase;letter-spacing:0.8px;
-color:var(--accent);
-}
-.a-actions{display:flex;gap:6px}
-.a-btn{
-padding:5px 10px;
-background:var(--surface-alt);
-border:1px solid var(--border);
-border-radius:6px;font-size:12px;
-color:var(--text-sec);cursor:pointer;
-font-family:inherit;font-weight:500;
-transition:all 0.15s;
-}
-.a-btn:active{background:var(--border)}
-.a-btn.danger{color:#c0392b;border-color:#f0d0cc}
-.a-btn.danger:active{background:#fdf0ef}
-.a-edit-wrap{
-flex:1;min-height:0;overflow-y:auto;
--webkit-overflow-scrolling:touch;
-padding:4px;
-}
-.a-edit{
-width:100%;height:100%;min-height:80px;
-border:none;outline:none;resize:none;
-font-size:15px;line-height:1.65;
-color:var(--text);font-family:inherit;
-padding:12px;
-background:transparent;
-}
-.a-edit::placeholder{color:var(--text-ter)}
-.a-status{
-padding:6px 16px 10px;
-font-size:11px;color:var(--text-ter);
-text-align:right;flex-shrink:0;
-}
-
-/* Notes Panel */
-.n-card{
-background:var(--surface);
-border-radius:var(--radius);
-box-shadow:var(--shadow);
-flex:1;min-height:0;
-display:flex;flex-direction:column;
-overflow:hidden;
-}
-.n-header{
-display:flex;align-items:center;justify-content:space-between;
-padding:12px 16px 8px;
-flex-shrink:0;
-border-bottom:1px solid var(--border);
-}
-.n-title{
-font-size:12px;font-weight:700;
-text-transform:uppercase;letter-spacing:0.8px;
-color:var(--accent);
-}
-.n-edit-wrap{
-flex:1;min-height:0;overflow-y:auto;
--webkit-overflow-scrolling:touch;
-padding:4px;
-}
-.n-edit{
-width:100%;height:100%;min-height:80px;
-border:none;outline:none;resize:none;
-font-size:15px;line-height:1.65;
-color:var(--text);font-family:inherit;
-padding:12px;
-background:transparent;
-}
-.n-edit::placeholder{color:var(--text-ter)}
-.n-status{
-padding:6px 16px 10px;
-font-size:11px;color:var(--text-ter);
-text-align:right;flex-shrink:0;
-}
-
-/* FOOTER NAV */
-.footer{
-flex-shrink:0;
-padding:8px 16px 10px;
-display:flex;align-items:center;gap:8px;
-}
-.nav-btn{
-flex:1;padding:13px 8px;
-border:1px solid var(--border);
-background:var(--surface);
-border-radius:var(--radius-sm);
-font-size:14px;font-weight:600;
-color:var(--text);cursor:pointer;
-font-family:inherit;
-transition:all 0.15s;
-box-shadow:var(--shadow);
-}
-.nav-btn:active{transform:scale(0.97);background:var(--surface-alt)}
-.nav-btn:disabled{opacity:0.35;pointer-events:none}
-.nav-btn.primary{
-background:var(--accent);color:#fff;
-border-color:var(--accent);
-}
-.nav-btn.primary:active{background:var(--accent-dark)}
-
-/* Hidden answer state */
-.answer-hidden .a-edit-wrap{
-display:flex;align-items:center;justify-content:center;
-}
-.answer-hidden .a-edit{display:none}
-.answer-hidden .hidden-msg{display:flex}
-.answer-shown .hidden-msg{display:none}
-.hidden-msg{
-display:none;
-flex-direction:column;align-items:center;
-gap:10px;color:var(--text-ter);
-padding:20px;text-align:center;
-}
-.hidden-msg svg{opacity:0.3}
-.hidden-msg span{font-size:14px}
-
-/* Scrollbars */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
-
-/* Fade transition */
-.panel{opacity:0;transition:opacity 0.15s ease}
-.panel.active{opacity:1}
-
-/* Toast */
-.toast{
-position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);
-background:var(--text);color:#fff;
-padding:10px 20px;border-radius:20px;
-font-size:13px;font-weight:500;
-opacity:0;transition:all 0.3s ease;
-pointer-events:none;z-index:100;
-}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-@media(min-width:520px){
-.q-text{font-size:20px}
-.a-edit,.n-edit{font-size:16px}
-}
-</style>
+  </style>
 </head>
 <body>
-<div class="app" id="app">
-  <header class="header">
-    <div class="header-top">
-      <span class="app-title">Interview Prep</span>
-      <span class="q-counter" id="qCounter">1 / 26</span>
-    </div>
-    <div class="q-select-row">
-      <select class="q-select" id="qSelect" aria-label="Jump to question"></select>
-    </div>
-  </header>
-
-  <nav class="tabs" role="tablist">
-    <button class="tab active" role="tab" data-tab="question" aria-selected="true">Question</button>
-    <button class="tab" role="tab" data-tab="answer" aria-selected="false">Answer <span class="dot" id="answerDot"></span></button>
-    <button class="tab" role="tab" data-tab="notes" aria-selected="false">Notes <span class="dot" id="notesDot"></span></button>
-  </nav>
-
-  <main class="content">
-    <!-- Question Panel -->
-    <section class="panel active" id="panelQuestion" role="tabpanel">
-      <div class="q-card">
-        <div class="q-label" id="qLabel">Question 1</div>
-        <div class="q-text" id="qText"></div>
-        <button class="reveal-btn" id="revealBtn">Reveal Answer</button>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Interview Prep</div>
+      <h1>Servier Medical Representative</h1>
+      <p class="subtitle">
+        Use this as your practice workbook. Each answer stays hidden until you reveal it, and once you do,
+        you can edit the sample answer, rewrite it in your own voice, and save personal notes directly in the page.
+      </p>
+      <div class="note-banner">
+        Your edits and notes save automatically in this browser using local storage, so they should persist when you host the file on GitHub Pages.
+      </div>
+      <div class="mobile-hint">
+        On phone, tap any <strong>Open answer</strong> button to jump straight into a one-question full-screen answer card so you do not have to scroll through the whole page.
       </div>
     </section>
 
-    <!-- Answer Panel -->
-    <section class="panel" id="panelAnswer" role="tabpanel">
-      <div class="a-card" id="aCard">
-        <div class="a-header">
-          <span class="a-title">Sample Answer</span>
-          <div class="a-actions">
-            <button class="a-btn" id="hideBtn">Hide</button>
-            <button class="a-btn danger" id="resetBtn">Reset</button>
+    <div class="top-grid">
+      <section class="panel span-7">
+        <h2>How to frame your background</h2>
+        <p>
+          When you talk about yourself, keep bringing the conversation back to relevant commercial experience:
+          brand ownership, HCP engagement, joint calls, sales analysis, account growth support, event execution, and budget management.
+        </p>
+        <p>
+          The goal is to sound commercially ready and motivated for a field-facing role, not like someone trying sales only because it feels new.
+        </p>
+      </section>
+
+      <section class="panel span-5">
+        <h3>Quick reminders</h3>
+        <ul>
+          <li>Do not memorize word for word. Keep the meaning and make the phrasing yours.</li>
+          <li>Use numbers naturally where relevant: 50+ HCP registrations, 35+ new accounts, double-digit growth.</li>
+          <li>Link marketing experience back to commercial impact and HCP engagement.</li>
+          <li>Keep your tone warm, clear, and steady.</li>
+          <li>Use the notes boxes to add your own examples, STAR stories, and preferred wording.</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="controls">
+      <input id="searchBox" type="search" placeholder="Search questions, topics, or keywords..." />
+      <button class="btn primary" id="revealAll" type="button">Reveal all</button>
+      <button class="btn" id="hideAll" type="button">Hide all</button>
+      <button class="btn mobile-practice-btn" id="openPracticeMode" type="button">Phone practice mode</button>
+      <button class="btn" id="resetAll" type="button">Reset all answers & notes</button>
+    </div>
+
+    <h2 class="section-title">Questions & Answers</h2>
+    <div class="qa-grid" id="qaGrid">
+      
+      <article class="card" data-search="tell me about yourself intro summary background abbott amgen marketing gi brand" data-id="1">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Opening</span></div>
+            <div class="question">1. Tell me about yourself.</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-1">
+          <div class="editor-block">
+            <label class="label" for="answerText-1">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-1" data-storage-key="servier-answer-1" data-default="I’m currently a Marketing Executive at Abbott, where I manage a GI brand and work closely with both sales teams and healthcare professionals. A big part of my role involves looking at sales performance, planning initiatives, creating promotional materials, supporting HCP engagement, and making sure the work translates into real business results.
+
+Before this, I was in oncology marketing at Amgen, where I got exposure to launch planning, disease awareness campaigns, and translating clinical data into practical messaging. Over time, I realized that the part I enjoy most is the commercial and customer-facing side, especially understanding what is happening in the market, engaging stakeholders, and helping drive growth. That’s why this Medical Representative role feels like a natural next step for me.">I’m currently a Marketing Executive at Abbott, where I manage a GI brand and work closely with both sales teams and healthcare professionals. A big part of my role involves looking at sales performance, planning initiatives, creating promotional materials, supporting HCP engagement, and making sure the work translates into real business results.
+
+Before this, I was in oncology marketing at Amgen, where I got exposure to launch planning, disease awareness campaigns, and translating clinical data into practical messaging. Over time, I realized that the part I enjoy most is the commercial and customer-facing side, especially understanding what is happening in the market, engaging stakeholders, and helping drive growth. That’s why this Medical Representative role feels like a natural next step for me.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-1">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-1">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-1" data-storage-key="servier-notes-1" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-1">Clear notes</button>
+            </div>
+          </div>
+          <div class="coaching">Keep it warm and steady. The key message is: pharma background, commercial exposure, and readiness for a field-facing role.</div>
+        </div>
+      </article>
+    
+      <article class="card" data-search="why servier why this company french research driven medical progress ethical products career progression" data-id="2">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Motivation</span></div>
+            <div class="question">2. Why do you want to join Servier?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-2">
+          <div class="editor-block">
+            <label class="label" for="answerText-2">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-2" data-storage-key="servier-answer-2" data-default="What stands out to me about Servier is that it is a research-driven company with a strong patient-centered focus, and I like that balance between science and commercial execution. I’m also drawn to the fact that the role is not just about selling. It involves quality engagement with healthcare professionals, CME activities, digital touchpoints, and building something long term in the territory.
+
+I’m also looking for a place where I can keep growing. From what I’ve seen, Servier values development and gives people room to progress if they perform well, and that’s something I find very motivating.">What stands out to me about Servier is that it is a research-driven company with a strong patient-centered focus, and I like that balance between science and commercial execution. I’m also drawn to the fact that the role is not just about selling. It involves quality engagement with healthcare professionals, CME activities, digital touchpoints, and building something long term in the territory.
+
+I’m also looking for a place where I can keep growing. From what I’ve seen, Servier values development and gives people room to progress if they perform well, and that’s something I find very motivating.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-2">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-2">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-2" data-storage-key="servier-notes-2" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-2">Clear notes</button>
+            </div>
+          </div>
+          <div class="coaching">If you want, add one genuine line about wanting to contribute to better patient outcomes through stronger HCP engagement.</div>
+        </div>
+      </article>
+    
+      <article class="card" data-search="why medical representative why sales why leave marketing move from marketing to field commercial" data-id="3">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Career Shift</span></div>
+            <div class="question">3. Why do you want to move from marketing into a Medical Representative role?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-3">
+          <div class="editor-block">
+            <label class="label" for="answerText-3">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-3" data-storage-key="servier-answer-3" data-default="Marketing gave me a strong foundation in strategy, brand thinking, and understanding the market, but over time I found myself most energized by the parts that were closer to the customer, like joint calls, HCP engagement, discussing treatment gaps, and seeing how field execution affects uptake very directly.
+
+So for me, this move feels intentional. I’m not moving away from what I’ve built. I’m building on it. I want to be in a role where I can take more ownership of relationships, territory performance, and day-to-day execution in the field.">Marketing gave me a strong foundation in strategy, brand thinking, and understanding the market, but over time I found myself most energized by the parts that were closer to the customer, like joint calls, HCP engagement, discussing treatment gaps, and seeing how field execution affects uptake very directly.
+
+So for me, this move feels intentional. I’m not moving away from what I’ve built. I’m building on it. I want to be in a role where I can take more ownership of relationships, territory performance, and day-to-day execution in the field.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-3">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-3">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-3" data-storage-key="servier-notes-3" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-3">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="no sales experience direct sales experience why should we hire you joint calls commercial experience" data-id="4">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Tough Question</span></div>
+            <div class="question">4. You don’t have direct sales experience. Why should we hire you?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-4">
+          <div class="editor-block">
+            <label class="label" for="answerText-4">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-4" data-storage-key="servier-answer-4" data-default="That’s fair, and I know I’m not coming from the most traditional route. But I do think I bring very relevant commercial experience. In my current role, I work on brand performance, sales analysis, HCP engagement, joint calls, events, budget planning, and initiatives that are meant to drive uptake and growth. So while my title is in marketing, the work itself is already very commercially grounded.
+
+I also think I bring a useful mix of scientific understanding, communication skills, and willingness to learn. I’m coachable, I’m comfortable being measured on results, and I’m genuinely motivated to prove myself in a field role.">That’s fair, and I know I’m not coming from the most traditional route. But I do think I bring very relevant commercial experience. In my current role, I work on brand performance, sales analysis, HCP engagement, joint calls, events, budget planning, and initiatives that are meant to drive uptake and growth. So while my title is in marketing, the work itself is already very commercially grounded.
+
+I also think I bring a useful mix of scientific understanding, communication skills, and willingness to learn. I’m coachable, I’m comfortable being measured on results, and I’m genuinely motivated to prove myself in a field role.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-4">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-4">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-4" data-storage-key="servier-notes-4" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-4">Clear notes</button>
+            </div>
+          </div>
+          <div class="coaching">Answer this confidently. Do not sound apologetic.</div>
+        </div>
+      </article>
+    
+      <article class="card" data-search="why leaving abbott current company leave reasons positive" data-id="5">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Transition</span></div>
+            <div class="question">5. Why are you leaving Abbott?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-5">
+          <div class="editor-block">
+            <label class="label" for="answerText-5">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-5" data-storage-key="servier-answer-5" data-default="I’ve learned a lot at Abbott, especially in brand management, analytics, stakeholder coordination, and HCP-related work, and I’m genuinely grateful for that experience. At this stage, though, I’m looking for a role that gives me more direct ownership on the field side, especially building relationships in the territory and driving results more directly.
+
+So for me, it’s really about growth and direction rather than leaving because of anything negative.">I’ve learned a lot at Abbott, especially in brand management, analytics, stakeholder coordination, and HCP-related work, and I’m genuinely grateful for that experience. At this stage, though, I’m looking for a role that gives me more direct ownership on the field side, especially building relationships in the territory and driving results more directly.
+
+So for me, it’s really about growth and direction rather than leaving because of anything negative.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-5">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-5">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-5" data-storage-key="servier-notes-5" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-5">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="understanding of role what is medical representative quality calls cme omnichannel territory" data-id="6">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Role Understanding</span></div>
+            <div class="question">6. What do you think makes a good Medical Representative?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-6">
+          <div class="editor-block">
+            <label class="label" for="answerText-6">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-6" data-storage-key="servier-answer-6" data-default="I think a good Medical Representative is someone who can balance relationship-building with discipline and execution. It’s not enough to be friendly. You need to be prepared, know your product well, understand your territory, and make each interaction meaningful.
+
+I also think credibility matters a lot in pharma. Doctors need to feel that you are accurate, professional, respectful of their time, and able to bring something relevant rather than just repeating a script. Over time, consistency is what really builds trust.">I think a good Medical Representative is someone who can balance relationship-building with discipline and execution. It’s not enough to be friendly. You need to be prepared, know your product well, understand your territory, and make each interaction meaningful.
+
+I also think credibility matters a lot in pharma. Doctors need to feel that you are accurate, professional, respectful of their time, and able to bring something relevant rather than just repeating a script. Over time, consistency is what really builds trust.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-6">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-6">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-6" data-storage-key="servier-notes-6" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-6">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="joint calls what did you learn field exposure hcp doctor interactions" data-id="7">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Field Exposure</span></div>
+            <div class="question">7. What did you learn from doing joint calls with sales teams?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-7">
+          <div class="editor-block">
+            <label class="label" for="answerText-7">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-7" data-storage-key="servier-answer-7" data-default="One thing I learned is that good calls are usually very focused. The best interactions weren’t the ones where the rep said the most. They were the ones where the rep understood the doctor, knew what message was most relevant, and kept the conversation concise and useful.
+
+I also saw how important follow-up is. One call alone often isn’t enough. It’s the consistency, the relevance of the messaging, and the relationship over time that really make a difference.">One thing I learned is that good calls are usually very focused. The best interactions weren’t the ones where the rep said the most. They were the ones where the rep understood the doctor, knew what message was most relevant, and kept the conversation concise and useful.
+
+I also saw how important follow-up is. One call alone often isn’t enough. It’s the consistency, the relevance of the messaging, and the relationship over time that really make a difference.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-7">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-7">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-7" data-storage-key="servier-notes-7" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-7">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="achievement biggest achievement abbott 35 new accounts double digit growth" data-id="8">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Achievement</span></div>
+            <div class="question">8. What’s an achievement you’re especially proud of?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-8">
+          <div class="editor-block">
+            <label class="label" for="answerText-8">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-8" data-storage-key="servier-answer-8" data-default="One achievement I’m proud of is my work on the GI brand I currently manage. Even with a limited budget, I was involved in analyzing performance, planning initiatives, creating materials from scratch, and supporting engagement efforts that helped secure more than 35 new accounts and contributed to double-digit growth in 2025.
+
+What I’m proud of is not just the number. It’s that the result came from being resourceful, staying close to the market, and making thoughtful decisions about where to focus effort.">One achievement I’m proud of is my work on the GI brand I currently manage. Even with a limited budget, I was involved in analyzing performance, planning initiatives, creating materials from scratch, and supporting engagement efforts that helped secure more than 35 new accounts and contributed to double-digit growth in 2025.
+
+What I’m proud of is not just the number. It’s that the result came from being resourceful, staying close to the market, and making thoughtful decisions about where to focus effort.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-8">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-8">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-8" data-storage-key="servier-notes-8" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-8">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="data analysis iqvia internal sales dashboard decision making" data-id="9">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Analytics</span></div>
+            <div class="question">9. Tell me about a time you used data to make a better decision.</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-9">
+          <div class="editor-block">
+            <label class="label" for="answerText-9">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-9" data-storage-key="servier-answer-9" data-default="A lot of my current role involves analyzing IQVIA and internal sales data across brands. I use that information to spot trends, understand where performance is stronger or weaker, and help shape what we prioritize next.
+
+For example, when certain segments or accounts show stronger opportunity, that helps guide where we should focus our efforts instead of spreading resources too thin. I like using data because it gives direction and makes decisions more grounded.">A lot of my current role involves analyzing IQVIA and internal sales data across brands. I use that information to spot trends, understand where performance is stronger or weaker, and help shape what we prioritize next.
+
+For example, when certain segments or accounts show stronger opportunity, that helps guide where we should focus our efforts instead of spreading resources too thin. I like using data because it gives direction and makes decisions more grounded.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-9">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-9">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-9" data-storage-key="servier-notes-9" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-9">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="new territory 30 60 90 days first 90 days territory plan kols" data-id="10">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Territory Planning</span></div>
+            <div class="question">10. How would you approach a new territory in your first 90 days?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-10">
+          <div class="editor-block">
+            <label class="label" for="answerText-10">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-10" data-storage-key="servier-answer-10" data-default="First, I’d want to understand the territory properly before forcing activity. So in the beginning I’d focus on learning the account landscape, understanding prescribing patterns, identifying key stakeholders, and getting clear on what success looks like for that territory.
+
+After that, I’d start prioritizing accounts, mapping out where the biggest opportunities are, and building a regular call plan. I’d also want to understand who the important KOLs are and where there may be untapped opportunities. I’d start with structure, then refine based on what I’m seeing in the field.">First, I’d want to understand the territory properly before forcing activity. So in the beginning I’d focus on learning the account landscape, understanding prescribing patterns, identifying key stakeholders, and getting clear on what success looks like for that territory.
+
+After that, I’d start prioritizing accounts, mapping out where the biggest opportunities are, and building a regular call plan. I’d also want to understand who the important KOLs are and where there may be untapped opportunities. I’d start with structure, then refine based on what I’m seeing in the field.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-10">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-10">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-10" data-storage-key="servier-notes-10" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-10">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="relationship building kol doctors stakeholders hcp trust" data-id="11">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Relationships</span></div>
+            <div class="question">11. How would you build relationships with doctors and KOLs?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-11">
+          <div class="editor-block">
+            <label class="label" for="answerText-11">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-11" data-storage-key="servier-answer-11" data-default="I’d start by understanding their practice and what matters to them, rather than going in with the same message for everyone. I think doctors can tell very quickly whether you’re just there to push a product or whether you’ve actually thought about how to make the conversation relevant.
+
+For me, relationship-building in pharma is really about consistency and credibility. If you show up prepared, communicate clearly, follow up properly, and respect their time, trust builds over time.">I’d start by understanding their practice and what matters to them, rather than going in with the same message for everyone. I think doctors can tell very quickly whether you’re just there to push a product or whether you’ve actually thought about how to make the conversation relevant.
+
+For me, relationship-building in pharma is really about consistency and credibility. If you show up prepared, communicate clearly, follow up properly, and respect their time, trust builds over time.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-11">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-11">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-11" data-storage-key="servier-notes-11" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-11">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="doctor too busy access issue no time hcp objection" data-id="12">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Objection Handling</span></div>
+            <div class="question">12. What would you do if a doctor is too busy to meet you?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-12">
+          <div class="editor-block">
+            <label class="label" for="answerText-12">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-12" data-storage-key="servier-answer-12" data-default="I’d respect that first. I wouldn’t try to force a conversation when the timing clearly isn’t right. I’d keep it brief, try to leave a concise and relevant point if appropriate, and understand whether there’s a better time or preferred channel for follow-up.
+
+I think persistence matters, but it has to be respectful and thoughtful. Sometimes it’s about timing rather than disinterest, so I’d stay professional and keep the relationship open.">I’d respect that first. I wouldn’t try to force a conversation when the timing clearly isn’t right. I’d keep it brief, try to leave a concise and relevant point if appropriate, and understand whether there’s a better time or preferred channel for follow-up.
+
+I think persistence matters, but it has to be respectful and thoughtful. Sometimes it’s about timing rather than disinterest, so I’d stay professional and keep the relationship open.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-12">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-12">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-12" data-storage-key="servier-notes-12" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-12">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="rejection resilience target pressure setbacks sales" data-id="13">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Resilience</span></div>
+            <div class="question">13. How do you handle rejection or setbacks?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-13">
+          <div class="editor-block">
+            <label class="label" for="answerText-13">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-13" data-storage-key="servier-answer-13" data-default="I try not to take it personally. In commercial roles, rejection is part of the job, so I prefer to treat it as feedback. Sometimes it means the timing is off, sometimes the message isn’t landing, and sometimes I just need to approach the stakeholder differently.
+
+What matters is whether I stay steady and keep learning from it. I’d rather adjust and keep moving than get discouraged by one difficult interaction.">I try not to take it personally. In commercial roles, rejection is part of the job, so I prefer to treat it as feedback. Sometimes it means the timing is off, sometimes the message isn’t landing, and sometimes I just need to approach the stakeholder differently.
+
+What matters is whether I stay steady and keep learning from it. I’d rather adjust and keep moving than get discouraged by one difficult interaction.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-13">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-13">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-13" data-storage-key="servier-notes-13" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-13">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="persuasion influence without authority cross functional collaboration" data-id="14">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Behavioral</span></div>
+            <div class="question">14. Tell me about a time you influenced others without formal authority.</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-14">
+          <div class="editor-block">
+            <label class="label" for="answerText-14">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-14" data-storage-key="servier-answer-14" data-default="In marketing, a lot of the work depends on coordination rather than authority. For example, when planning events or producing promotional materials, I often need to align sales teams, agency partners, and internal stakeholders who all have different priorities.
+
+What helped was being clear on the objective, backing recommendations with data or business rationale, and staying collaborative rather than forceful. I’ve learned that people respond better when they feel you’re trying to solve the same problem together.">In marketing, a lot of the work depends on coordination rather than authority. For example, when planning events or producing promotional materials, I often need to align sales teams, agency partners, and internal stakeholders who all have different priorities.
+
+What helped was being clear on the objective, backing recommendations with data or business rationale, and staying collaborative rather than forceful. I’ve learned that people respond better when they feel you’re trying to solve the same problem together.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-14">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-14">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-14" data-storage-key="servier-notes-14" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-14">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="omnichannel digital approach tools webinars online engagement" data-id="15">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Digital</span></div>
+            <div class="question">15. How would you use digital tools or an omnichannel approach in this role?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-15">
+          <div class="editor-block">
+            <label class="label" for="answerText-15">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-15" data-storage-key="servier-answer-15" data-default="I don’t think field engagement today is only about face-to-face visits. In-person calls are still important, especially for relationship-building, but digital touchpoints can make follow-up more consistent and more convenient when used properly.
+
+My current experience with webinars, digital content, dashboards, and online engagement has shown me that different channels work best for different purposes. I’d want to use that mix in a practical way, not just because the tool exists, but because it supports the relationship and the objective.">I don’t think field engagement today is only about face-to-face visits. In-person calls are still important, especially for relationship-building, but digital touchpoints can make follow-up more consistent and more convenient when used properly.
+
+My current experience with webinars, digital content, dashboards, and online engagement has shown me that different channels work best for different purposes. I’d want to use that mix in a practical way, not just because the tool exists, but because it supports the relationship and the objective.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-15">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-15">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-15" data-storage-key="servier-notes-15" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-15">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="budget management sap roi resource allocation" data-id="16">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Ownership</span></div>
+            <div class="question">16. How do you manage budgets or resources responsibly?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-16">
+          <div class="editor-block">
+            <label class="label" for="answerText-16">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-16" data-storage-key="servier-answer-16" data-default="In my current role, I’m involved in managing marketing budgets and SAP-related processes, and that’s taught me to think carefully about where resources should go. I try to look at both the business need and the likely impact before committing spend.
+
+I’ve also had to work within limited budgets, so I’m used to prioritizing. For me, responsible budget use means being disciplined, while also knowing when to redirect support toward higher-impact opportunities.">In my current role, I’m involved in managing marketing budgets and SAP-related processes, and that’s taught me to think carefully about where resources should go. I try to look at both the business need and the likely impact before committing spend.
+
+I’ve also had to work within limited budgets, so I’m used to prioritizing. For me, responsible budget use means being disciplined, while also knowing when to redirect support toward higher-impact opportunities.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-16">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-16">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-16" data-storage-key="servier-notes-16" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-16">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="ethical promotion compliance integrity honesty product claims" data-id="17">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Compliance</span></div>
+            <div class="question">17. What does ethical promotion mean to you?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-17">
+          <div class="editor-block">
+            <label class="label" for="answerText-17">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-17" data-storage-key="servier-answer-17" data-default="To me, ethical promotion means being accurate, responsible, and respectful of the role healthcare professionals play in patient care. It means communicating within approved messaging, representing evidence fairly, and never overstating what a product can do.
+
+I think credibility in pharma is built over time and lost very quickly, so integrity really matters. If I’m ever unsure about something, I’d rather clarify first than risk saying the wrong thing.">To me, ethical promotion means being accurate, responsible, and respectful of the role healthcare professionals play in patient care. It means communicating within approved messaging, representing evidence fairly, and never overstating what a product can do.
+
+I think credibility in pharma is built over time and lost very quickly, so integrity really matters. If I’m ever unsure about something, I’d rather clarify first than risk saying the wrong thing.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-17">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-17">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-17" data-storage-key="servier-notes-17" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-17">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="strength biggest strength scientific commercial communication" data-id="18">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Self-Awareness</span></div>
+            <div class="question">18. What’s your biggest strength?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-18">
+          <div class="editor-block">
+            <label class="label" for="answerText-18">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-18" data-storage-key="servier-answer-18" data-default="One of my biggest strengths is that I can bridge the scientific and commercial sides quite naturally. Because I’ve worked in pharmaceutical marketing and also have a scientific background, I’m comfortable understanding evidence, translating it into practical messaging, and thinking about what actually matters in the market.
+
+I’m also proactive. If I own something, I don’t like just monitoring it from a distance. I want to understand it properly and move it forward.">One of my biggest strengths is that I can bridge the scientific and commercial sides quite naturally. Because I’ve worked in pharmaceutical marketing and also have a scientific background, I’m comfortable understanding evidence, translating it into practical messaging, and thinking about what actually matters in the market.
+
+I’m also proactive. If I own something, I don’t like just monitoring it from a distance. I want to understand it properly and move it forward.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-18">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-18">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-18" data-storage-key="servier-notes-18" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-18">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="weakness perfectionism weakness honest improvement" data-id="19">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Self-Awareness</span></div>
+            <div class="question">19. What’s one weakness you’re working on?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-19">
+          <div class="editor-block">
+            <label class="label" for="answerText-19">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-19" data-storage-key="servier-answer-19" data-default="Earlier on, I had a tendency to overprepare because I wanted things to be very polished before moving. That can be useful to a point, but in a fast-moving commercial environment, I’ve learned that progress and responsiveness matter too.
+
+So what I’ve been working on is being more comfortable making decisions with good judgment, moving forward, and then refining along the way instead of waiting for everything to feel perfect first.">Earlier on, I had a tendency to overprepare because I wanted things to be very polished before moving. That can be useful to a point, but in a fast-moving commercial environment, I’ve learned that progress and responsiveness matter too.
+
+So what I’ve been working on is being more comfortable making decisions with good judgment, moving forward, and then refining along the way instead of waiting for everything to feel perfect first.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-19">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-19">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-19" data-storage-key="servier-notes-19" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-19">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="why should we hire you closing sell yourself" data-id="20">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Closing</span></div>
+            <div class="question">20. Why should we hire you?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-20">
+          <div class="editor-block">
+            <label class="label" for="answerText-20">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-20" data-storage-key="servier-answer-20" data-default="I think I bring a combination that fits this role well: pharmaceutical knowledge, strong commercial exposure, comfort working with HCP-related initiatives, and a real willingness to learn. I may not come from a traditional sales title, but I already understand how to work with data, engage stakeholders, support growth, and stay accountable to business outcomes.
+
+More importantly, I’m serious about this move. I’m not just curious about sales. I’m ready to put in the work and grow into the role properly.">I think I bring a combination that fits this role well: pharmaceutical knowledge, strong commercial exposure, comfort working with HCP-related initiatives, and a real willingness to learn. I may not come from a traditional sales title, but I already understand how to work with data, engage stakeholders, support growth, and stay accountable to business outcomes.
+
+More importantly, I’m serious about this move. I’m not just curious about sales. I’m ready to put in the work and grow into the role properly.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-20">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-20">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-20" data-storage-key="servier-notes-20" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-20">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="5 years future career progression specialist key account" data-id="21">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Future</span></div>
+            <div class="question">21. Where do you see yourself in the next 3 to 5 years?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-21">
+          <div class="editor-block">
+            <label class="label" for="answerText-21">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-21" data-storage-key="servier-answer-21" data-default="In the near term, I’d want to become a strong and dependable Medical Representative, someone who understands the territory well, builds trust with stakeholders, and delivers consistently. Once I’ve built that foundation, I’d be interested in growing into a specialist or key account role over time.
+
+For me, the first priority would really be to learn quickly, perform well, and earn that next step properly.">In the near term, I’d want to become a strong and dependable Medical Representative, someone who understands the territory well, builds trust with stakeholders, and delivers consistently. Once I’ve built that foundation, I’d be interested in growing into a specialist or key account role over time.
+
+For me, the first priority would really be to learn quickly, perform well, and earn that next step properly.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-21">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-21">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-21" data-storage-key="servier-notes-21" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-21">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="questions for interviewer ask them hiring manager what to ask" data-id="22">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Ask Them</span></div>
+            <div class="question">22. What questions should you ask the hiring manager at the end?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Open answer</button>
+        </div>
+        <div class="answer" id="answer-22">
+          <div class="editor-block">
+            <label class="label" for="answerText-22">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-22" data-storage-key="servier-answer-22" data-default="A few good options are: “From your perspective, what usually distinguishes the stronger performers in this role?” “What are the main opportunities or challenges in the territory I’d be covering?” “How do you typically coach someone coming from a marketing background into a more field-based commercial role?” and “What would success in the first 6 months look like?”
+
+You don’t need to ask all of them. Pick two or three that feel most natural to you.">A few good options are: “From your perspective, what usually distinguishes the stronger performers in this role?” “What are the main opportunities or challenges in the territory I’d be covering?” “How do you typically coach someone coming from a marketing background into a more field-based commercial role?” and “What would success in the first 6 months look like?”
+
+You don’t need to ask all of them. Pick two or three that feel most natural to you.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-22">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-22">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-22" data-storage-key="servier-notes-22" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-22">Clear notes</button>
+            </div>
+          </div>
+          <div class="coaching">Ask naturally, not like you are reading from a checklist.</div>
+        </div>
+      </article>
+    
+    </div>
+
+    <div class="practice-modal" id="practiceModal" aria-hidden="true">
+      <div class="practice-shell">
+        <div class="practice-header">
+          <div>
+            <div class="practice-kicker">
+              <span class="tag" id="practiceTag">Question</span>
+              <span class="practice-count" id="practiceCount">1 / 1</span>
+            </div>
+            <h2 class="practice-question" id="practiceQuestion">Question</h2>
+          </div>
+          <button class="btn practice-close" id="closePracticeMode" type="button">Close</button>
+        </div>
+
+        <div class="practice-card">
+          <p class="practice-prompt-text" id="practicePromptText"></p>
+
+          <div class="practice-answer-stage">
+            <div class="practice-answer-placeholder" id="practicePlaceholder">
+              <div class="placeholder-title">Keep the answer hidden first</div>
+              <div class="placeholder-copy">Say your answer out loud before you reveal it. When you are ready, tap the center button below to open the full answer card.</div>
+            </div>
+
+            <div class="practice-answer-wrap hidden" id="practiceAnswerWrap">
+              <div class="practice-answer-status" id="practiceAnswerStatus">Full-screen answer view</div>
+              <div class="practice-answer-fitbox" id="practiceAnswerFitbox">
+                <div class="practice-answer-text" id="practiceAnswerText"></div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="a-edit-wrap">
-          <div class="hidden-msg">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-            <span>Tap "Reveal Answer" on the Question tab</span>
+
+        <div class="practice-actions">
+          <div class="practice-nav">
+            <button class="btn" id="practicePrev" type="button">Previous</button>
+            <button class="btn primary" id="practiceReveal" type="button">Close</button>
+            <button class="btn" id="practiceNext" type="button">Next</button>
           </div>
-          <textarea class="a-edit" id="aEdit" placeholder="Sample answer will appear here…" aria-label="Editable sample answer"></textarea>
+          <div class="practice-spacer" id="practiceHint">One question at a time, with the answer shown immediately as a full-screen card.</div>
         </div>
-        <div class="a-status" id="aStatus"></div>
       </div>
-    </section>
+    </div>
 
-    <!-- Notes Panel -->
-    <section class="panel" id="panelNotes" role="tabpanel">
-      <div class="n-card">
-        <div class="n-header">
-          <span class="n-title">Your Notes</span>
-          <button class="a-btn danger" id="clearNotesBtn">Clear</button>
-        </div>
-        <div class="n-edit-wrap">
-          <textarea class="n-edit" id="nEdit" placeholder="Add your personal notes for this question…" aria-label="Personal notes"></textarea>
-        </div>
-        <div class="n-status" id="nStatus"></div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <button class="nav-btn" id="prevBtn">← Prev</button>
-    <button class="nav-btn primary" id="actionBtn">Reveal</button>
-    <button class="nav-btn" id="nextBtn">Next →</button>
-  </footer>
-</div>
+    <p class="footer-note">
+      Best way to practise: read the full-screen sample answer, edit it until it sounds like you, and save the version you want to use.
+    </p>
+  </div>
 
-<div class="toast" id="toast"></div>
+  
+  <script>
+    const toggles = document.querySelectorAll('.toggle');
+    const answers = document.querySelectorAll('.answer');
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const searchBox = document.getElementById('searchBox');
+    const revealAllBtn = document.getElementById('revealAll');
+    const hideAllBtn = document.getElementById('hideAll');
+    const resetAllBtn = document.getElementById('resetAll');
+    const editors = document.querySelectorAll('[data-storage-key]');
 
-<script>
-const DATA=[
-{q:"Tell me about yourself.",a:`You can say something like: "I'm currently a Marketing Executive at a pharmaceutical company where I manage a GI brand. My day-to-day involves sales analysis, working with IQVIA data, creating marketing materials, and engaging with healthcare professionals. Before this, I did an oncology marketing internship where I supported a product launch and ran disease awareness campaigns. I also have a research background in immunology from my university days.\n\nWhat I've realized is that I love the commercial side of pharma — understanding the data, building strategies, and seeing the impact on the ground. That's exactly why I want to move into a medical rep role. I want to be the person having those conversations with doctors directly, not just supporting from behind the scenes."`},
-{q:"Why do you want to join Servier?",a:`You can say: "Servier stands out to me because it's a research-driven company that's independent — meaning decisions are driven by science and patients, not just shareholders. I've read about your focus areas and I respect that Servier invests heavily in R&D. That resonates with my science background.\n\nI also like that Servier has a reputation for developing people. I'm looking for a company where I can grow long-term, not just fill a seat. I want to be part of a team that values ethical promotion and genuine medical education — and from what I've seen, that's very much Servier's culture."`},
-{q:"Why do you want a Medical Representative role when you are currently in marketing?",a:`You can say: "Honestly, marketing has taught me a lot — I understand the strategy, the data, the messaging. But every time I've gone on joint calls with the sales team, that's when I felt most energized. Being face-to-face with doctors, understanding their concerns, adapting your message in real time — that's the part of this industry I want to do full-time.\n\nI see this as a natural next step, not a sideways move. I'll bring the strategic thinking and data skills from marketing, but now apply them directly in the field. I'm not leaving marketing behind — I'm building on it."`},
-{q:"You do not have direct sales experience. Why should we hire you?",a:`You can say: "That's fair — I haven't carried a sales bag before. But here's what I bring: I've done joint calls, so I understand what a doctor visit looks like. I know how to read sales data because I do it every day with IQVIA reports. I've helped shape the messages that reps use in the field. And I've negotiated for accounts and managed budgets with real constraints.\n\nWhat I might lack in direct selling experience, I make up for with commercial awareness, coachability, and a genuine desire to learn. I'm not coming in thinking I know everything — I'm coming in ready to absorb and deliver."`},
-{q:"Why are you leaving your current company?",a:`You can say: "I've learned a lot where I am, and I'm grateful for the experience. But I've reached a point where I want to grow into a field-facing role, and that opportunity isn't available in my current setup. The team is small and the path forward would keep me in a back-office marketing function.\n\nI want to be closer to the action — building relationships with doctors, driving results in a territory. This role at Servier gives me that chance, and I think the timing is right for me to make this move."`},
-{q:"What do you know about the role of a Medical Representative?",a:`You can say: "From what I understand, the med rep role is about being the bridge between the company and healthcare professionals. You're responsible for a territory — knowing your doctors, understanding their prescribing habits, presenting clinical data in a way that's relevant to them, and ultimately helping them see how your product can benefit their patients.\n\nIt's not about hard selling. It's about building trust over time, providing genuine medical value, and being a reliable resource. You also need to plan your calls, manage your time well, hit your targets, and report back accurately. I've seen this firsthand through joint calls, so I know it's a mix of relationship-building, science communication, and commercial execution."`},
-{q:"What did you learn from your joint calls?",a:`You can say: "Joint calls were honestly the most eye-opening part of my role. I learned that every doctor is different — some want to see the data, some want a quick summary, and some just want to know what's new. You have to read the room fast.\n\nI also learned that preparation matters a lot. The reps who did well were the ones who knew the doctor's history, their preferences, and had a clear objective for each call. I picked up on how they handle objections, how they pivot when a doctor is uninterested, and how they keep the relationship warm even when there's no immediate win. Those lessons have shaped how I think about engagement."`},
-{q:"Describe a time you helped drive business results.",a:`You can say: "In my current role, I managed the marketing for a GI brand that had a limited budget. I analyzed our IQVIA data and identified that we were underperforming in certain districts — not because of product issues, but because the messaging wasn't landing well with local HCPs.\n\nI revised our materials, focused our efforts on the high-potential accounts, and worked closely with the sales team to align our approach. Within two quarters, we saw measurable improvement in those districts. It wasn't a solo effort, but I drove the analysis and the strategy that made the difference."`},
-{q:"Describe a time you used data to make a decision.",a:`You can say: "I regularly work with IQVIA data and internal sales dashboards. One specific example — I noticed that one of our products was declining in a particular region while growing elsewhere. I dug into the data and found that a competitor had launched an aggressive campaign there.\n\nRather than just matching their spend, I proposed a more targeted approach: focus on the top prescribers who were switching, tailor our messaging to address the specific claims the competitor was making, and coordinate joint calls in that area. It was a data-driven decision, not a gut feeling, and it helped us stabilize our share in that region."`},
-{q:"How would you approach a new territory in your first 90 days?",a:`You can say: "First 30 days — I'd focus on learning. Understand the product portfolio deeply, study the territory data, map out the key doctors and accounts, and learn from experienced colleagues. I'd want to shadow reps and absorb as much as possible.\n\nDays 30 to 60 — I'd start making my own calls, prioritizing high-value targets. I'd focus on introducing myself, building rapport, and understanding each doctor's needs. I'd also start tracking my activity and looking for patterns.\n\nDays 60 to 90 — I'd refine my approach based on what's working. Set clear targets, build a call cycle, and start delivering consistent value. By the end of 90 days, I want every key doctor in my territory to know who I am and trust that I'm a reliable resource."`},
-{q:"How would you build relationships with KOLs and doctors?",a:`You can say: "It starts with respect for their time and expertise. I'd do my homework before every interaction — know their specialties, their research interests, their prescribing patterns. I wouldn't walk in with a generic pitch.\n\nOver time, I'd aim to become a trusted resource, not just a product promoter. That means sharing relevant clinical data, inviting them to meaningful events, following up on their questions promptly, and being honest when I don't have an answer. Consistency matters — showing up regularly, being reliable, and always adding value. That's how you build real relationships."`},
-{q:"What would you do if a doctor says they are too busy to see you?",a:`You can say: "I'd respect their time completely. I might say something like, 'I understand, doctor. Could I leave a brief summary for you, and perhaps we could find a better time?' The key is not being pushy.\n\nI'd also look for alternative touchpoints — maybe catching them at a conference, sending a short email with a relevant article, or connecting through their staff. Sometimes it's about persistence without being annoying. If you consistently show that you respect their time and have something valuable to offer, most doctors will eventually give you a few minutes."`},
-{q:"How do you handle rejection?",a:`You can say: "I'd be lying if I said rejection doesn't sting at all. But I've learned not to take it personally. In marketing, not every campaign works, not every proposal gets approved. You learn to separate the outcome from your effort.\n\nWith doctors, a 'no' today isn't a 'no' forever. Maybe the timing was off, or they had a bad day. I'd reflect on what I could do better, adjust my approach, and try again. The reps I admire most are the ones who stay positive and consistent, even when things don't go their way. That's the mindset I'd bring."`},
-{q:"Give an example of persuasion or influencing without authority.",a:`You can say: "In my marketing role, I often need to get buy-in from the sales team for new campaigns or messaging changes. They don't report to me, so I can't just tell them what to do.\n\nOne time, I wanted to shift our promotional focus for a brand. The sales team was skeptical. Instead of pushing, I showed them the data — here's where we're losing share, here's why, and here's what I think we should try. I invited their input, incorporated their feedback, and framed it as our plan, not my plan. They adopted it willingly, and it worked. That experience taught me that persuasion is about evidence, empathy, and collaboration."`},
-{q:"How would you execute an omnichannel approach?",a:`You can say: "From my marketing experience, I know that omnichannel is about creating a consistent, connected experience across touchpoints. As a rep, that means my face-to-face visits are just one part of the picture.\n\nI'd coordinate with approved digital channels — emails, webinars, e-detailing — to reinforce my in-person messages. Before a visit, I might send a relevant article. After a visit, I'd follow up with a summary or an invitation to an upcoming event. The idea is that the doctor hears a coherent story no matter how they interact with us. I've helped design these kinds of integrated campaigns in my current role, so I understand how the pieces fit together."`},
-{q:"Tell me about a time you managed a budget carefully.",a:`You can say: "In my current role, I manage the marketing budget for a brand, and it's not a big one. So every dollar needs to count. I track spending closely, prioritize high-impact activities, and negotiate with vendors to stretch our resources.\n\nOne example: I had to plan a regional event series with a tight budget. I negotiated venue costs down, used in-house materials where possible, and focused on the cities with the highest potential return. The events were well-attended and delivered good engagement, all within budget. It taught me that being resourceful is just as important as having resources."`},
-{q:"How do you ensure ethical promotion?",a:`You can say: "This is something I take seriously. In my current role, every piece of material goes through medical and regulatory review, and I've internalized that discipline. I wouldn't say anything to a doctor that isn't supported by approved data.\n\nEthical promotion means being honest about what your product can and can't do. It means not cherry-picking data. It means reporting adverse events properly. I believe that ethical behavior actually builds better relationships long-term — doctors trust you more when they know you're being straight with them."`},
-{q:"What is your biggest strength?",a:`You can say: "I'd say my biggest strength is that I'm both analytical and personable. I can dig into data and pull out meaningful insights, but I can also walk into a room and build rapport with people. Not everyone does both well.\n\nIn my current role, I toggle between spreadsheets and stakeholder meetings daily. That combination of data skills and people skills is exactly what I think makes a great med rep — you need to understand the numbers and be able to communicate them in a way that resonates with real humans."`},
-{q:"What is your weakness?",a:`You can say: "I'd say I sometimes overthink things. Coming from a marketing and analytics background, I can get caught up in wanting every detail to be perfect before I act. In a fast-paced sales environment, you sometimes need to move quickly with good-enough information.\n\nI'm aware of this, and I've been actively working on it. I've started setting time limits for decisions and reminding myself that done is better than perfect. It's a work in progress, but I'm getting better at balancing thoroughness with speed."`},
-{q:"Why should we hire you?",a:`You can say: "Because I bring a combination that's hard to find. I have the commercial awareness of someone who's worked in pharma marketing — I understand strategy, data, and brand positioning. But I also have the hunger and drive of someone who genuinely wants to be in the field.\n\nI'm coachable, I'm analytical, and I'm not afraid to put in the work. I've already been in doctor meetings through joint calls, I understand IQVIA data, and I know how to create compelling messages. I'm not asking you to take a chance on someone with no relevant exposure — I'm asking you to invest in someone who's already halfway there and ready to run."`},
-{q:"Where do you see yourself in 3 to 5 years?",a:`You can say: "In the near term, I want to become a really strong medical representative. I want to know my territory inside out, earn the trust of my doctors, and consistently hit my targets. That's job one.\n\nLonger term, I'd love to grow into a senior field role — maybe a Key Account Manager or eventually move into a commercial leadership position. My marketing background gives me a strategic perspective that I think would serve me well as I progress. But honestly, my focus right now is on earning that first step and proving myself in the field."`},
-{q:"How do you handle pressure and targets?",a:`You can say: "Pressure is something I'm used to. In marketing, I have deadlines, campaign KPIs, and budget constraints. I deal with pressure by breaking things down — what do I need to do this week to stay on track for the month?\n\nI also find that good planning reduces stress. If I know my territory, my key accounts, and my call plan, I can focus on execution instead of scrambling. And when things get tough, I lean on the team — I'm not too proud to ask for help or advice. Pressure is part of the job; the key is managing it proactively, not reactively."`},
-{q:"What would you do if you were behind target?",a:`You can say: "First, I'd look at the data to understand why. Is it a particular territory segment? A specific product? Certain doctors who've reduced prescribing? I wouldn't panic — I'd diagnose.\n\nThen I'd adjust my plan. Maybe I need to increase call frequency to high-potential doctors, revisit accounts I've been neglecting, or change my messaging approach. I'd also talk to my manager and colleagues — what are others doing that's working? Being behind target isn't the end of the world, but staying behind because you didn't adapt — that's the problem. I'd take action fast."`},
-{q:"How would you respond if a doctor challenges your product data?",a:`You can say: "I'd welcome it, honestly. A doctor who challenges your data is a doctor who's engaged and thinking critically. That's actually a great sign.\n\nI'd listen carefully to their concern, acknowledge their point, and respond with the evidence I have. If I can address it on the spot with approved data, I will. If I can't, I'd say, 'That's a great question — let me get back to you with the specific data on that.' And then I'd actually follow through. Credibility is built in those moments. Never bluff, never dismiss their concern, and always follow up."`},
-{q:"What questions would you ask the interviewer?",a:`You can say: "I'd want to ask things like:\n\n'What does success look like for someone in this role in the first year?'\n\n'How is the sales team structured and how does marketing support the field?'\n\n'What are the biggest challenges the team is currently facing in this territory?'\n\n'What kind of training and development does Servier offer for new medical reps?'\n\nThese show you're thinking about the role seriously and that you want to succeed, not just get hired."`},
-{q:"This is a tough sales role. Are you sure this is what you want?",a:`You can say: "Yes, and I appreciate you being direct about it. I'm not going into this with rose-colored glasses. I know it means early mornings, long days, rejection, and pressure to hit targets. I've talked to people in the field and I've seen it firsthand during joint calls.\n\nBut here's the thing — I'm choosing this. I'm not being pushed out of marketing. I'm actively seeking this because I want to be closer to the impact. I want to own a territory, build relationships, and see the direct results of my work. That kind of challenge motivates me. I wouldn't be sitting here if I wasn't sure."`}
-];
+    const openPracticeModeBtn = document.getElementById('openPracticeMode');
+    const practiceModal = document.getElementById('practiceModal');
+    const closePracticeModeBtn = document.getElementById('closePracticeMode');
+    const practiceTag = document.getElementById('practiceTag');
+    const practiceCount = document.getElementById('practiceCount');
+    const practiceQuestion = document.getElementById('practiceQuestion');
+    const practicePromptText = document.getElementById('practicePromptText');
+    const practicePlaceholder = document.getElementById('practicePlaceholder');
+    const practiceAnswerWrap = document.getElementById('practiceAnswerWrap');
+    const practiceAnswerStatus = document.getElementById('practiceAnswerStatus');
+    const practiceAnswerFitbox = document.getElementById('practiceAnswerFitbox');
+    const practiceAnswerText = document.getElementById('practiceAnswerText');
+    const practicePrev = document.getElementById('practicePrev');
+    const practiceReveal = document.getElementById('practiceReveal');
+    const practiceNext = document.getElementById('practiceNext');
+    const practiceHint = document.getElementById('practiceHint');
 
-let current=0;
-let revealed={};
-let activeTab='question';
-let saveTimers={a:null,n:null};
+    const practiceState = {
+      visibleCards: [],
+      index: 0
+    };
 
-const $=id=>document.getElementById(id);
-const qCounter=$('qCounter'),qSelect=$('qSelect'),qLabel=$('qLabel'),qText=$('qText');
-const revealBtn=$('revealBtn'),hideBtn=$('hideBtn'),resetBtn=$('resetBtn');
-const aEdit=$('aEdit'),aStatus=$('aStatus'),aCard=$('aCard');
-const nEdit=$('nEdit'),nStatus=$('nStatus'),clearNotesBtn=$('clearNotesBtn');
-const prevBtn=$('prevBtn'),nextBtn=$('nextBtn'),actionBtn=$('actionBtn');
-const answerDot=$('answerDot'),notesDot=$('notesDot');
-const toast=$('toast');
+    function saveValue(el) {
+      try {
+        localStorage.setItem(el.dataset.storageKey, el.value);
+      } catch (e) {
+        console.warn('Could not save to localStorage', e);
+      }
+    }
 
-const panels={
-question:$('panelQuestion'),
-answer:$('panelAnswer'),
-notes:$('panelNotes')
-};
-const tabs=document.querySelectorAll('.tab');
+    function loadValue(el) {
+      try {
+        const saved = localStorage.getItem(el.dataset.storageKey);
+        if (saved !== null) el.value = saved;
+      } catch (e) {
+        console.warn('Could not load from localStorage', e);
+      }
+    }
 
-// Init dropdown
-DATA.forEach((item,i)=>{
-const o=document.createElement('option');
-o.value=i;
-o.textContent=`${i+1}. ${item.q}`;
-qSelect.appendChild(o);
-});
+    function resetEditor(el) {
+      const defaultValue = el.dataset.default || '';
+      el.value = defaultValue;
+      saveValue(el);
+    }
 
-function showToast(msg){
-toast.textContent=msg;
-toast.classList.add('show');
-setTimeout(()=>toast.classList.remove('show'),1800);
-}
+    function getVisibleCards() {
+      return cards.filter(card => !card.classList.contains('hidden'));
+    }
 
-function lsKey(type,idx){return`ip_${type}_${idx}`}
+    function setInlineAnswerState(card, open) {
+      const answer = card.querySelector('.answer');
+      const btn = card.querySelector('.toggle');
+      answer.classList.toggle('open', open);
+      if (btn) {
+        btn.textContent = open ? 'Close answer' : 'Open answer';
+        btn.setAttribute('aria-expanded', String(open));
+      }
+    }
 
-function getSavedAnswer(idx){
-const s=localStorage.getItem(lsKey('a',idx));
-return s!==null?s:DATA[idx].a;
-}
-function getSavedNotes(idx){
-return localStorage.getItem(lsKey('n',idx))||'';
-}
+    function isPhoneWidth() {
+      return window.matchMedia('(max-width: 860px)').matches;
+    }
 
-function saveAnswer(){
-localStorage.setItem(lsKey('a',current),aEdit.value);
-aStatus.textContent='Saved';
-setTimeout(()=>{if(aStatus.textContent==='Saved')aStatus.textContent='';},1500);
-}
-function saveNotes(){
-localStorage.setItem(lsKey('n',current),nEdit.value);
-nStatus.textContent='Saved';
-setTimeout(()=>{if(nStatus.textContent==='Saved')nStatus.textContent='';},1500);
-}
+    function fitPracticeAnswer() {
+      if (!practiceModal.classList.contains('open')) return;
+      const currentCard = practiceState.visibleCards[practiceState.index];
+      if (!currentCard) return;
 
-function switchTab(tab){
-activeTab=tab;
-tabs.forEach(t=>{
-const isActive=t.dataset.tab===tab;
-t.classList.toggle('active',isActive);
-t.setAttribute('aria-selected',isActive);
-});
-Object.entries(panels).forEach(([k,p])=>{
-p.classList.toggle('active',k===tab);
-});
-updateActionBtn();
-}
+      const text = currentCard.querySelector('.answer-editor').value.trim();
+      practiceAnswerText.textContent = text;
+      practiceAnswerFitbox.scrollTop = 0;
 
-function updateActionBtn(){
-if(activeTab==='question'){
-if(revealed[current]){
-actionBtn.textContent='Hide';
-actionBtn.onclick=()=>{hideAnswer();};
-}else{
-actionBtn.textContent='Reveal';
-actionBtn.onclick=()=>{revealAnswer();};
-}
-}else if(activeTab==='answer'){
-if(revealed[current]){
-actionBtn.textContent='Hide';
-actionBtn.onclick=()=>{hideAnswer();switchTab('question');};
-}else{
-actionBtn.textContent='Reveal';
-actionBtn.onclick=()=>{revealAnswer();};
-}
-}else{
-actionBtn.textContent='Reveal';
-actionBtn.onclick=()=>{revealAnswer();};
-}
-actionBtn.classList.toggle('primary',!revealed[current]);
-}
+      const startSize = isPhoneWidth() ? 26 : 24;
+      const minSize = isPhoneWidth() ? 16 : 17;
+      let size = startSize;
+      practiceAnswerText.style.fontSize = size + 'px';
 
-function updateDots(){
-const hasCustomAnswer=localStorage.getItem(lsKey('a',current))!==null;
-const hasNotes=getSavedNotes(current).trim().length>0;
-answerDot.classList.toggle('visible',hasCustomAnswer);
-notesDot.classList.toggle('visible',hasNotes);
-}
+      // Let the browser lay out once before measuring.
+      void practiceAnswerText.offsetHeight;
 
-function revealAnswer(){
-revealed[current]=true;
-aCard.classList.remove('answer-hidden');
-aCard.classList.add('answer-shown');
-revealBtn.textContent='Answer Revealed ✓';
-revealBtn.style.background='var(--accent-light)';
-revealBtn.style.color='var(--accent-dark)';
-switchTab('answer');
-updateActionBtn();
-}
+      while (size > minSize && practiceAnswerFitbox.scrollHeight > practiceAnswerFitbox.clientHeight + 2) {
+        size -= 1;
+        practiceAnswerText.style.fontSize = size + 'px';
+      }
+    }
 
-function hideAnswer(){
-revealed[current]=false;
-aCard.classList.add('answer-hidden');
-aCard.classList.remove('answer-shown');
-revealBtn.textContent='Reveal Answer';
-revealBtn.style.background='';
-revealBtn.style.color='';
-updateActionBtn();
-}
+    function renderPractice() {
+      practiceState.visibleCards = getVisibleCards();
+      if (!practiceState.visibleCards.length) {
+        closePracticeMode();
+        return;
+      }
+      if (practiceState.index < 0) practiceState.index = 0;
+      if (practiceState.index >= practiceState.visibleCards.length) practiceState.index = practiceState.visibleCards.length - 1;
 
-function loadQuestion(idx){
-current=idx;
-qCounter.textContent=`${idx+1} / ${DATA.length}`;
-qSelect.value=idx;
-qLabel.textContent=`Question ${idx+1}`;
-qText.textContent=DATA[idx].q;
+      const card = practiceState.visibleCards[practiceState.index];
+      const questionText = card.querySelector('.question').textContent.trim();
+      const tagText = card.querySelector('.tag').textContent.trim();
 
-aEdit.value=getSavedAnswer(idx);
-nEdit.value=getSavedNotes(idx);
+      practiceTag.textContent = tagText;
+      practiceCount.textContent = `${practiceState.index + 1} / ${practiceState.visibleCards.length}`;
+      practiceQuestion.textContent = questionText;
+      practicePromptText.textContent = questionText;
+      practicePlaceholder.classList.add('hidden');
+      practiceAnswerWrap.classList.remove('hidden');
+      practiceAnswerStatus.textContent = 'Large-text answer card';
+      practiceReveal.textContent = 'Close';
+      practiceHint.textContent = 'The answer opens straight away as a full-screen card, with large text and fixed navigation.';
 
-// Reset reveal state
-revealed[current]=false;
-aCard.classList.add('answer-hidden');
-aCard.classList.remove('answer-shown');
-revealBtn.textContent='Reveal Answer';
-revealBtn.style.background='';
-revealBtn.style.color='';
+      fitPracticeAnswer();
 
-prevBtn.disabled=idx===0;
-nextBtn.disabled=idx===DATA.length-1;
+      practicePrev.disabled = practiceState.index === 0;
+      practiceNext.disabled = practiceState.index === practiceState.visibleCards.length - 1;
+    }
 
-aStatus.textContent='';
-nStatus.textContent='';
+    function openPracticeMode(startIndex = 0) {
+      practiceState.visibleCards = getVisibleCards();
+      if (!practiceState.visibleCards.length) return;
+      practiceState.index = Math.max(0, Math.min(startIndex, practiceState.visibleCards.length - 1));
+      const currentCard = practiceState.visibleCards[practiceState.index];
+      if (currentCard) {
+        setInlineAnswerState(currentCard, true);
+      }
+      practiceModal.classList.add('open');
+      practiceModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      renderPractice();
+    }
 
-updateDots();
-updateActionBtn();
-if(activeTab!=='question')switchTab('question');
-}
+    function closePracticeMode() {
+      practiceModal.classList.remove('open');
+      practiceModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
 
-// Events
-qSelect.addEventListener('change',()=>loadQuestion(+qSelect.value));
-prevBtn.addEventListener('click',()=>{if(current>0)loadQuestion(current-1)});
-nextBtn.addEventListener('click',()=>{if(current<DATA.length-1)loadQuestion(current+1)});
-revealBtn.addEventListener('click',revealAnswer);
-hideBtn.addEventListener('click',()=>{hideAnswer();switchTab('question')});
+    editors.forEach((el) => {
+      loadValue(el);
+      el.addEventListener('input', () => {
+        saveValue(el);
+        if (practiceModal.classList.contains('open')) {
+          const currentCard = practiceState.visibleCards[practiceState.index];
+          if (!currentCard) return;
+          const currentAnswer = currentCard.querySelector('.answer-editor');
+          if (el === currentAnswer) {
+            fitPracticeAnswer();
+          }
+        }
+      });
+    });
 
-resetBtn.addEventListener('click',()=>{
-localStorage.removeItem(lsKey('a',current));
-aEdit.value=DATA[current].a;
-showToast('Answer reset to default');
-updateDots();
-});
-clearNotesBtn.addEventListener('click',()=>{
-localStorage.removeItem(lsKey('n',current));
-nEdit.value='';
-showToast('Notes cleared');
-updateDots();
-});
+    toggles.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.card');
+        if (isPhoneWidth()) {
+          const visible = getVisibleCards();
+          setInlineAnswerState(card, true);
+          openPracticeMode(visible.indexOf(card));
+          return;
+        }
+        const answer = card.querySelector('.answer');
+        const isOpen = answer.classList.contains('open');
+        setInlineAnswerState(card, !isOpen);
+      });
+    });
 
-tabs.forEach(t=>t.addEventListener('click',()=>switchTab(t.dataset.tab)));
+    revealAllBtn.addEventListener('click', () => {
+      answers.forEach(a => a.classList.add('open'));
+      toggles.forEach(b => {
+        b.textContent = 'Close answer';
+        b.setAttribute('aria-expanded', 'true');
+      });
+    });
 
-aEdit.addEventListener('input',()=>{
-clearTimeout(saveTimers.a);
-saveTimers.a=setTimeout(()=>{saveAnswer();updateDots();},600);
-});
-nEdit.addEventListener('input',()=>{
-clearTimeout(saveTimers.n);
-saveTimers.n=setTimeout(()=>{saveNotes();updateDots();},600);
-});
+    hideAllBtn.addEventListener('click', () => {
+      answers.forEach(a => a.classList.remove('open'));
+      toggles.forEach(b => {
+        b.textContent = 'Open answer';
+        b.setAttribute('aria-expanded', 'false');
+      });
+    });
 
-// Keyboard: swipe-like nav
-document.addEventListener('keydown',e=>{
-if(e.target.tagName==='TEXTAREA')return;
-if(e.key==='ArrowLeft'&&current>0)loadQuestion(current-1);
-if(e.key==='ArrowRight'&&current<DATA.length-1)loadQuestion(current+1);
-});
+    searchBox.addEventListener('input', () => {
+      const term = searchBox.value.trim().toLowerCase();
+      cards.forEach(card => {
+        const haystack = (card.dataset.search + ' ' + card.innerText).toLowerCase();
+        card.classList.toggle('hidden', term && !haystack.includes(term));
+      });
+      if (practiceModal.classList.contains('open')) {
+        practiceState.index = 0;
+        renderPractice();
+      }
+    });
 
-// Touch swipe
-let touchStartX=0;
-const content=document.querySelector('.content');
-content.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX},{passive:true});
-content.addEventListener('touchend',e=>{
-const dx=e.changedTouches[0].clientX-touchStartX;
-if(Math.abs(dx)>60){
-if(dx<0&&current<DATA.length-1)loadQuestion(current+1);
-if(dx>0&&current>0)loadQuestion(current-1);
-}
-},{passive:true});
+    document.querySelectorAll('.reset-answer').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        if (target) {
+          resetEditor(target);
+          if (practiceModal.classList.contains('open')) {
+            fitPracticeAnswer();
+          }
+        }
+      });
+    });
 
-// Init
-loadQuestion(0);
-</script>
+    document.querySelectorAll('.clear-notes').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        if (!target) return;
+        target.value = '';
+        saveValue(target);
+      });
+    });
+
+    resetAllBtn.addEventListener('click', () => {
+      if (!confirm('Reset all edited answers and notes on this device?')) return;
+      editors.forEach((el) => {
+        if (el.classList.contains('answer-editor')) {
+          resetEditor(el);
+        } else {
+          el.value = '';
+          saveValue(el);
+        }
+      });
+      if (practiceModal.classList.contains('open')) {
+        renderPractice();
+      }
+    });
+
+    openPracticeModeBtn.addEventListener('click', () => openPracticeMode(0));
+    closePracticeModeBtn.addEventListener('click', closePracticeMode);
+    practiceModal.addEventListener('click', (event) => {
+      if (event.target === practiceModal) closePracticeMode();
+    });
+
+    practiceReveal.addEventListener('click', () => {
+      closePracticeMode();
+    });
+
+    practicePrev.addEventListener('click', () => {
+      if (practiceState.index > 0) {
+        practiceState.index -= 1;
+        const card = practiceState.visibleCards[practiceState.index];
+        if (card) setInlineAnswerState(card, true);
+        renderPractice();
+      }
+    });
+
+    practiceNext.addEventListener('click', () => {
+      if (practiceState.index < practiceState.visibleCards.length - 1) {
+        practiceState.index += 1;
+        const card = practiceState.visibleCards[practiceState.index];
+        if (card) setInlineAnswerState(card, true);
+        renderPractice();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (practiceModal.classList.contains('open')) {
+        requestAnimationFrame(fitPracticeAnswer);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!practiceModal.classList.contains('open')) return;
+      if (event.key === 'Escape') closePracticeMode();
+      if (event.key === 'ArrowLeft' && practiceState.index > 0) {
+        practiceState.index -= 1;
+        const card = practiceState.visibleCards[practiceState.index];
+        if (card) setInlineAnswerState(card, true);
+        renderPractice();
+      }
+      if (event.key === 'ArrowRight' && practiceState.index < practiceState.visibleCards.length - 1) {
+        practiceState.index += 1;
+        const card = practiceState.visibleCards[practiceState.index];
+        if (card) setInlineAnswerState(card, true);
+        renderPractice();
+      }
+    });
+
+  </script>
+
 </body>
 </html>
