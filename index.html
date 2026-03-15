@@ -284,6 +284,218 @@
       .toggle { width: 100%; }
       .editor-actions { align-items: flex-start; }
     }
+  
+    .mobile-practice-btn {
+      background: linear-gradient(135deg, rgba(56,189,248,0.22), rgba(34,197,94,0.16));
+    }
+    .practice-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      background: rgba(3, 7, 18, 0.88);
+      backdrop-filter: blur(14px);
+      padding: 12px;
+    }
+    .practice-modal.open {
+      display: block;
+    }
+    .practice-shell {
+      height: calc(100dvh - 24px);
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 10px;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(17, 24, 39, 0.98));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .practice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .practice-kicker {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .practice-count {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .practice-question {
+      margin: 0;
+      font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+      line-height: 1.25;
+      color: #f8fafc;
+    }
+    .practice-close {
+      flex-shrink: 0;
+    }
+    .practice-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .practice-tab {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+    .practice-tab.active {
+      background: rgba(56,189,248,0.14);
+      border-color: rgba(56,189,248,0.45);
+      color: #effbff;
+    }
+    .practice-main {
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .practice-pane {
+      display: none;
+      flex: 1;
+      min-height: 0;
+    }
+    .practice-pane.active {
+      display: flex;
+      flex-direction: column;
+    }
+    .practice-card {
+      flex: 1;
+      min-height: 0;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      padding: 16px;
+    }
+    .practice-prompt-text {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      font-size: clamp(1.08rem, 2.7vw, 1.35rem);
+      line-height: 1.55;
+      color: #e8eef7;
+      white-space: pre-wrap;
+    }
+    .practice-answer-wrap {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    .practice-answer-status {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .practice-answer-fitbox {
+      flex: 1;
+      min-height: 0;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 14px;
+      overflow: hidden;
+    }
+    .practice-answer-fitbox.needs-scroll {
+      overflow-y: auto;
+    }
+    .practice-answer-text {
+      white-space: pre-wrap;
+      line-height: 1.55;
+      color: #f8fafc;
+      font-size: 20px;
+    }
+    .practice-editor,
+    .practice-notes {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      resize: none;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      padding: 14px;
+      font: inherit;
+      line-height: 1.55;
+      outline: none;
+    }
+    .practice-editor:focus,
+    .practice-notes:focus {
+      border-color: rgba(56,189,248,0.6);
+      box-shadow: 0 0 0 3px rgba(56,189,248,0.12);
+    }
+    .practice-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .practice-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .practice-spacer {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .mobile-hint {
+      display: none;
+      margin-top: 12px;
+      color: #dbe4ee;
+      font-size: 0.93rem;
+    }
+    @media (max-width: 860px) {
+      .mobile-hint {
+        display: block;
+      }
+      .practice-modal {
+        padding: 0;
+      }
+      .practice-shell {
+        height: 100dvh;
+        border-radius: 0;
+        max-width: none;
+        padding: 12px;
+      }
+      .practice-tabs {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      .practice-tab {
+        text-align: center;
+        padding: 10px 8px;
+        font-size: 0.86rem;
+      }
+      .practice-actions {
+        position: sticky;
+        bottom: 0;
+        background: linear-gradient(180deg, rgba(15,23,42,0), rgba(15,23,42,0.96) 25%);
+        padding-top: 10px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -297,6 +509,9 @@
       </p>
       <div class="note-banner">
         Your edits and notes save automatically in this browser using local storage, so they should persist when you host the file on GitHub Pages.
+      </div>
+      <div class="mobile-hint">
+        On phone, tap any <strong>Reveal answer</strong> button to open a one-question practice screen so you do not have to scroll through the whole page.
       </div>
     </section>
 
@@ -328,6 +543,7 @@
       <input id="searchBox" type="search" placeholder="Search questions, topics, or keywords..." />
       <button class="btn primary" id="revealAll" type="button">Reveal all</button>
       <button class="btn" id="hideAll" type="button">Hide all</button>
+      <button class="btn mobile-practice-btn" id="openPracticeMode" type="button">Phone practice mode</button>
       <button class="btn" id="resetAll" type="button">Reset all answers & notes</button>
     </div>
 
@@ -1062,20 +1278,105 @@ You don’t need to ask all of them. Pick two or three that feel most natural to
     
     </div>
 
+
+    <div class="practice-modal" id="practiceModal" aria-hidden="true">
+      <div class="practice-shell">
+        <div class="practice-header">
+          <div>
+            <div class="practice-kicker">
+              <span class="tag" id="practiceTag">Question</span>
+              <span class="practice-count" id="practiceCount">1 / 1</span>
+            </div>
+            <h2 class="practice-question" id="practiceQuestion">Question</h2>
+          </div>
+          <button class="btn practice-close" id="closePracticeMode" type="button">Close</button>
+        </div>
+
+        <div class="practice-tabs">
+          <button class="practice-tab active" type="button" data-tab="prompt">Question</button>
+          <button class="practice-tab" type="button" data-tab="answer">Answer</button>
+          <button class="practice-tab" type="button" data-tab="edit">Edit</button>
+          <button class="practice-tab" type="button" data-tab="notes">Notes</button>
+        </div>
+
+        <div class="practice-main">
+          <div class="practice-pane active" data-pane="prompt">
+            <div class="practice-card">
+              <div class="practice-prompt-text" id="practicePromptText"></div>
+            </div>
+          </div>
+
+          <div class="practice-pane" data-pane="answer">
+            <div class="practice-card">
+              <div class="practice-answer-wrap">
+                <div class="practice-answer-status" id="practiceAnswerStatus">Tap reveal answer to view it.</div>
+                <div class="practice-answer-fitbox" id="practiceAnswerFitbox">
+                  <div class="practice-answer-text" id="practiceAnswerText"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="practice-pane" data-pane="edit">
+            <textarea class="practice-editor" id="practiceEditor" placeholder="Edit your answer here..."></textarea>
+          </div>
+
+          <div class="practice-pane" data-pane="notes">
+            <textarea class="practice-notes" id="practiceNotes" placeholder="Write notes, reminders, keywords, and STAR points here..."></textarea>
+          </div>
+        </div>
+
+        <div class="practice-actions">
+          <div class="practice-nav">
+            <button class="btn" id="practicePrev" type="button">Previous</button>
+            <button class="btn primary" id="practiceReveal" type="button">Reveal answer</button>
+            <button class="btn" id="practiceNext" type="button">Next</button>
+          </div>
+          <div class="practice-spacer" id="practiceHint">One question at a time, built for phone practice.</div>
+        </div>
+      </div>
+    </div>
+
     <p class="footer-note">
       Best way to practise: answer out loud first, then reveal the sample answer, edit it until it sounds like you, and save the version you want to use.
     </p>
   </div>
 
+  
   <script>
     const toggles = document.querySelectorAll('.toggle');
     const answers = document.querySelectorAll('.answer');
-    const cards = document.querySelectorAll('.card');
+    const cards = Array.from(document.querySelectorAll('.card'));
     const searchBox = document.getElementById('searchBox');
     const revealAllBtn = document.getElementById('revealAll');
     const hideAllBtn = document.getElementById('hideAll');
     const resetAllBtn = document.getElementById('resetAll');
     const editors = document.querySelectorAll('[data-storage-key]');
+    const openPracticeModeBtn = document.getElementById('openPracticeMode');
+    const practiceModal = document.getElementById('practiceModal');
+    const closePracticeModeBtn = document.getElementById('closePracticeMode');
+    const practiceTag = document.getElementById('practiceTag');
+    const practiceCount = document.getElementById('practiceCount');
+    const practiceQuestion = document.getElementById('practiceQuestion');
+    const practicePromptText = document.getElementById('practicePromptText');
+    const practiceAnswerStatus = document.getElementById('practiceAnswerStatus');
+    const practiceAnswerFitbox = document.getElementById('practiceAnswerFitbox');
+    const practiceAnswerText = document.getElementById('practiceAnswerText');
+    const practiceEditor = document.getElementById('practiceEditor');
+    const practiceNotes = document.getElementById('practiceNotes');
+    const practicePrev = document.getElementById('practicePrev');
+    const practiceReveal = document.getElementById('practiceReveal');
+    const practiceNext = document.getElementById('practiceNext');
+    const practiceHint = document.getElementById('practiceHint');
+    const practiceTabs = Array.from(document.querySelectorAll('.practice-tab'));
+    const practicePanes = Array.from(document.querySelectorAll('.practice-pane'));
+
+    const practiceState = {
+      visibleCards: [],
+      index: 0,
+      tab: 'prompt',
+      revealed: {}
+    };
 
     function saveValue(el) {
       try {
@@ -1100,18 +1401,144 @@ You don’t need to ask all of them. Pick two or three that feel most natural to
       saveValue(el);
     }
 
+    function getVisibleCards() {
+      return cards.filter(card => !card.classList.contains('hidden'));
+    }
+
+    function setInlineAnswerState(card, open) {
+      const answer = card.querySelector('.answer');
+      const btn = card.querySelector('.toggle');
+      answer.classList.toggle('open', open);
+      btn.textContent = open ? 'Hide answer' : 'Reveal answer';
+      btn.setAttribute('aria-expanded', String(open));
+    }
+
+    function isPhoneWidth() {
+      return window.matchMedia('(max-width: 860px)').matches;
+    }
+
+    function fitPracticeAnswer() {
+      if (!practiceModal.classList.contains('open')) return;
+      const pane = document.querySelector('.practice-pane[data-pane="answer"]');
+      if (!pane.classList.contains('active')) return;
+      const currentCard = practiceState.visibleCards[practiceState.index];
+      if (!currentCard) return;
+
+      const revealed = !!practiceState.revealed[currentCard.dataset.id];
+      const text = revealed ? currentCard.querySelector('.answer-editor').value.trim() : '';
+      practiceAnswerText.textContent = text;
+      practiceAnswerFitbox.classList.remove('needs-scroll');
+      practiceAnswerText.style.fontSize = '20px';
+
+      if (!revealed) return;
+
+      let size = isPhoneWidth() ? 20 : 22;
+      practiceAnswerText.style.fontSize = size + 'px';
+
+      while (size > 12 && (practiceAnswerText.scrollHeight > practiceAnswerFitbox.clientHeight || practiceAnswerText.scrollWidth > practiceAnswerFitbox.clientWidth)) {
+        size -= 1;
+        practiceAnswerText.style.fontSize = size + 'px';
+      }
+
+      if (practiceAnswerText.scrollHeight > practiceAnswerFitbox.clientHeight || practiceAnswerText.scrollWidth > practiceAnswerFitbox.clientWidth) {
+        practiceAnswerFitbox.classList.add('needs-scroll');
+      }
+    }
+
+    function setPracticeTab(tab) {
+      practiceState.tab = tab;
+      practiceTabs.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tab));
+      practicePanes.forEach(pane => pane.classList.toggle('active', pane.dataset.pane === tab));
+      if (tab === 'answer') {
+        requestAnimationFrame(fitPracticeAnswer);
+      }
+    }
+
+    function syncPracticeEditors(card) {
+      const answerEditor = card.querySelector('.answer-editor');
+      const notesEditor = card.querySelector('.notes-editor');
+      practiceEditor.value = answerEditor.value;
+      practiceNotes.value = notesEditor.value;
+    }
+
+    function renderPractice() {
+      practiceState.visibleCards = getVisibleCards();
+      if (!practiceState.visibleCards.length) {
+        closePracticeMode();
+        return;
+      }
+      if (practiceState.index < 0) practiceState.index = 0;
+      if (practiceState.index >= practiceState.visibleCards.length) practiceState.index = practiceState.visibleCards.length - 1;
+
+      const card = practiceState.visibleCards[practiceState.index];
+      const questionText = card.querySelector('.question').textContent.trim();
+      const tagText = card.querySelector('.tag').textContent.trim();
+      const revealed = !!practiceState.revealed[card.dataset.id];
+
+      practiceTag.textContent = tagText;
+      practiceCount.textContent = `${practiceState.index + 1} / ${practiceState.visibleCards.length}`;
+      practiceQuestion.textContent = questionText;
+      practicePromptText.textContent = questionText;
+      practiceAnswerStatus.textContent = revealed
+        ? 'Answer view auto-fits to your screen.'
+        : 'Tap reveal answer to view it.';
+      practiceReveal.textContent = revealed ? 'Hide answer' : 'Reveal answer';
+      practiceHint.textContent = revealed
+        ? 'Swipe your eyes, not the page.'
+        : 'Keep the answer hidden until you are ready.';
+      syncPracticeEditors(card);
+      setPracticeTab(practiceState.tab);
+      fitPracticeAnswer();
+
+      practicePrev.disabled = practiceState.index === 0;
+      practiceNext.disabled = practiceState.index === practiceState.visibleCards.length - 1;
+    }
+
+    function openPracticeMode(startIndex = 0) {
+      practiceState.visibleCards = getVisibleCards();
+      if (!practiceState.visibleCards.length) return;
+      practiceState.index = Math.max(0, Math.min(startIndex, practiceState.visibleCards.length - 1));
+      practiceState.tab = 'prompt';
+      practiceModal.classList.add('open');
+      practiceModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      renderPractice();
+    }
+
+    function closePracticeMode() {
+      practiceModal.classList.remove('open');
+      practiceModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
     editors.forEach((el) => {
       loadValue(el);
-      el.addEventListener('input', () => saveValue(el));
+      el.addEventListener('input', () => {
+        saveValue(el);
+        if (practiceModal.classList.contains('open')) {
+          const currentCard = practiceState.visibleCards[practiceState.index];
+          if (!currentCard) return;
+          const currentAnswer = currentCard.querySelector('.answer-editor');
+          const currentNotes = currentCard.querySelector('.notes-editor');
+          if (el === currentAnswer || el === currentNotes) {
+            syncPracticeEditors(currentCard);
+            fitPracticeAnswer();
+          }
+        }
+      });
     });
 
     toggles.forEach((btn) => {
       btn.addEventListener('click', () => {
-        const answer = btn.closest('.card').querySelector('.answer');
+        const card = btn.closest('.card');
+        if (isPhoneWidth()) {
+          const visible = getVisibleCards();
+          openPracticeMode(visible.indexOf(card));
+          return;
+        }
+        const answer = card.querySelector('.answer');
         const isOpen = answer.classList.contains('open');
-        answer.classList.toggle('open', !isOpen);
-        btn.textContent = isOpen ? 'Reveal answer' : 'Hide answer';
-        btn.setAttribute('aria-expanded', String(!isOpen));
+        setInlineAnswerState(card, !isOpen);
       });
     });
 
@@ -1137,12 +1564,25 @@ You don’t need to ask all of them. Pick two or three that feel most natural to
         const haystack = (card.dataset.search + ' ' + card.innerText).toLowerCase();
         card.classList.toggle('hidden', term && !haystack.includes(term));
       });
+      if (practiceModal.classList.contains('open')) {
+        practiceState.index = 0;
+        renderPractice();
+      }
     });
 
     document.querySelectorAll('.reset-answer').forEach((btn) => {
       btn.addEventListener('click', () => {
         const target = document.getElementById(btn.dataset.target);
-        if (target) resetEditor(target);
+        if (target) {
+          resetEditor(target);
+          if (practiceModal.classList.contains('open')) {
+            const currentCard = practiceState.visibleCards[practiceState.index];
+            if (currentCard && currentCard.querySelector('.answer-editor') === target) {
+              syncPracticeEditors(currentCard);
+              fitPracticeAnswer();
+            }
+          }
+        }
       });
     });
 
@@ -1152,6 +1592,12 @@ You don’t need to ask all of them. Pick two or three that feel most natural to
         if (!target) return;
         target.value = '';
         saveValue(target);
+        if (practiceModal.classList.contains('open')) {
+          const currentCard = practiceState.visibleCards[practiceState.index];
+          if (currentCard && currentCard.querySelector('.notes-editor') === target) {
+            syncPracticeEditors(currentCard);
+          }
+        }
       });
     });
 
@@ -1165,7 +1611,85 @@ You don’t need to ask all of them. Pick two or three that feel most natural to
           saveValue(el);
         }
       });
+      if (practiceModal.classList.contains('open')) {
+        renderPractice();
+      }
+    });
+
+    openPracticeModeBtn.addEventListener('click', () => openPracticeMode(0));
+    closePracticeModeBtn.addEventListener('click', closePracticeMode);
+    practiceModal.addEventListener('click', (event) => {
+      if (event.target === practiceModal) closePracticeMode();
+    });
+
+    practiceTabs.forEach((btn) => {
+      btn.addEventListener('click', () => setPracticeTab(btn.dataset.tab));
+    });
+
+    practiceReveal.addEventListener('click', () => {
+      const card = practiceState.visibleCards[practiceState.index];
+      if (!card) return;
+      const id = card.dataset.id;
+      practiceState.revealed[id] = !practiceState.revealed[id];
+      setInlineAnswerState(card, practiceState.revealed[id]);
+      if (practiceState.revealed[id]) {
+        setPracticeTab('answer');
+      } else {
+        setPracticeTab('prompt');
+      }
+      renderPractice();
+    });
+
+    practicePrev.addEventListener('click', () => {
+      if (practiceState.index > 0) {
+        practiceState.index -= 1;
+        renderPractice();
+      }
+    });
+
+    practiceNext.addEventListener('click', () => {
+      if (practiceState.index < practiceState.visibleCards.length - 1) {
+        practiceState.index += 1;
+        renderPractice();
+      }
+    });
+
+    practiceEditor.addEventListener('input', () => {
+      const card = practiceState.visibleCards[practiceState.index];
+      if (!card) return;
+      const target = card.querySelector('.answer-editor');
+      target.value = practiceEditor.value;
+      saveValue(target);
+      fitPracticeAnswer();
+    });
+
+    practiceNotes.addEventListener('input', () => {
+      const card = practiceState.visibleCards[practiceState.index];
+      if (!card) return;
+      const target = card.querySelector('.notes-editor');
+      target.value = practiceNotes.value;
+      saveValue(target);
+    });
+
+    window.addEventListener('resize', () => {
+      if (practiceModal.classList.contains('open')) {
+        requestAnimationFrame(fitPracticeAnswer);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!practiceModal.classList.contains('open')) return;
+      if (event.key === 'Escape') closePracticeMode();
+      if (event.key === 'ArrowLeft' && practiceState.index > 0) {
+        practiceState.index -= 1;
+        renderPractice();
+      }
+      if (event.key === 'ArrowRight' && practiceState.index < practiceState.visibleCards.length - 1) {
+        practiceState.index += 1;
+        renderPractice();
+      }
     });
   </script>
+
 </body>
 </html>
