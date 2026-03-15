@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servier Medical Representative Interview Prep</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --border: rgba(255,255,255,0.10);
+      --shadow: 0 20px 50px rgba(0,0,0,0.25);
+      --warning: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #0b1220 0%, #111827 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 18px 72px;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(56,189,248,0.14), rgba(34,197,94,0.10));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.1;
+    }
+    .subtitle {
+      margin: 0;
+      color: var(--text);
+      max-width: 900px;
+      font-size: 1rem;
+      opacity: 0.92;
+    }
+    .top-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .panel {
+      background: rgba(17, 24, 39, 0.88);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .panel h2, .panel h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    .panel p, .panel li {
+      color: #dbe4ee;
+    }
+    .panel ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .span-7 { grid-column: span 7; }
+    .span-5 { grid-column: span 5; }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 24px 0 10px;
+      align-items: center;
+    }
+    input[type="search"] {
+      flex: 1 1 280px;
+      min-width: 220px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      padding: 12px 14px;
+      outline: none;
+      font-size: 0.98rem;
+    }
+    input[type="search"]::placeholder,
+    textarea::placeholder {
+      color: #7f8da4;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      padding: 11px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.18s ease;
+    }
+    .btn:hover,
+    .mini-btn:hover,
+    .toggle:hover {
+      transform: translateY(-1px);
+      border-color: rgba(56,189,248,0.5);
+      background: rgba(56,189,248,0.10);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(56,189,248,0.18), rgba(34,197,94,0.14));
+    }
+    .section-title {
+      margin: 30px 0 14px;
+      font-size: 1.2rem;
+      color: #f8fafc;
+    }
+    .qa-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .card {
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .card-head {
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    }
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      background: rgba(56,189,248,0.08);
+    }
+    .question {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+    .toggle {
+      white-space: nowrap;
+      border: 1px solid transparent;
+      background: rgba(56,189,248,0.12);
+      color: #dff6ff;
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.18s ease;
+    }
+    .answer {
+      display: none;
+      padding: 0 18px 18px;
+      color: #dbe4ee;
+    }
+    .answer.open {
+      display: block;
+      animation: fade 0.2s ease;
+    }
+    .editor-block {
+      margin-top: 14px;
+    }
+    .label {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+    .editor {
+      width: 100%;
+      min-height: 148px;
+      resize: vertical;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      padding: 14px;
+      font: inherit;
+      line-height: 1.6;
+      outline: none;
+    }
+    .notes-editor {
+      min-height: 120px;
+    }
+    .editor:focus {
+      border-color: rgba(56,189,248,0.6);
+      box-shadow: 0 0 0 3px rgba(56,189,248,0.12);
+    }
+    .editor-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 9px;
+    }
+    .save-hint {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .mini-btn {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.18s ease;
+    }
+    .coaching {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--accent-2);
+      background: rgba(34,197,94,0.08);
+      border-radius: 10px;
+      color: #e9fff2;
+      font-size: 0.95rem;
+    }
+    .footer-note {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+    .hidden {
+      display: none !important;
+    }
+    .note-banner {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(245, 158, 11, 0.10);
+      border: 1px solid rgba(245, 158, 11, 0.18);
+      color: #fde7b0;
+      font-size: 0.93rem;
+    }
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 860px) {
+      .span-7, .span-5 { grid-column: span 12; }
+      .card-head { flex-direction: column; align-items: flex-start; }
+      .toggle { width: 100%; }
+      .editor-actions { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Interview Prep</div>
+      <h1>Servier Medical Representative</h1>
+      <p class="subtitle">
+        Use this as your practice workbook. Each answer stays hidden until you reveal it, and once you do,
+        you can edit the sample answer, rewrite it in your own voice, and save personal notes directly in the page.
+      </p>
+      <div class="note-banner">
+        Your edits and notes save automatically in this browser using local storage, so they should persist when you host the file on GitHub Pages.
+      </div>
+    </section>
+
+    <div class="top-grid">
+      <section class="panel span-7">
+        <h2>How to frame your background</h2>
+        <p>
+          When you talk about yourself, keep bringing the conversation back to relevant commercial experience:
+          brand ownership, HCP engagement, joint calls, sales analysis, account growth support, event execution, and budget management.
+        </p>
+        <p>
+          The goal is to sound commercially ready and motivated for a field-facing role, not like someone trying sales only because it feels new.
+        </p>
+      </section>
+
+      <section class="panel span-5">
+        <h3>Quick reminders</h3>
+        <ul>
+          <li>Do not memorize word for word. Keep the meaning and make the phrasing yours.</li>
+          <li>Use numbers naturally where relevant: 50+ HCP registrations, 35+ new accounts, double-digit growth.</li>
+          <li>Link marketing experience back to commercial impact and HCP engagement.</li>
+          <li>Keep your tone warm, clear, and steady.</li>
+          <li>Use the notes boxes to add your own examples, STAR stories, and preferred wording.</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="controls">
+      <input id="searchBox" type="search" placeholder="Search questions, topics, or keywords..." />
+      <button class="btn primary" id="revealAll" type="button">Reveal all</button>
+      <button class="btn" id="hideAll" type="button">Hide all</button>
+      <button class="btn" id="resetAll" type="button">Reset all answers & notes</button>
+    </div>
+
+    <h2 class="section-title">Questions & Answers</h2>
+    <div class="qa-grid" id="qaGrid">
+      
+      <article class="card" data-search="tell me about yourself intro summary background abbott amgen marketing gi brand" data-id="1">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Opening</span></div>
+            <div class="question">1. Tell me about yourself.</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-1">
+          <div class="editor-block">
+            <label class="label" for="answerText-1">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-1" data-storage-key="servier-answer-1" data-default="I’m currently a Marketing Executive at Abbott, where I manage a GI brand and work closely with both sales teams and healthcare professionals. A big part of my role involves looking at sales performance, planning initiatives, creating promotional materials, supporting HCP engagement, and making sure the work translates into real business results.
+
+Before this, I was in oncology marketing at Amgen, where I got exposure to launch planning, disease awareness campaigns, and translating clinical data into practical messaging. Over time, I realized that the part I enjoy most is the commercial and customer-facing side, especially understanding what is happening in the market, engaging stakeholders, and helping drive growth. That’s why this Medical Representative role feels like a natural next step for me.">I’m currently a Marketing Executive at Abbott, where I manage a GI brand and work closely with both sales teams and healthcare professionals. A big part of my role involves looking at sales performance, planning initiatives, creating promotional materials, supporting HCP engagement, and making sure the work translates into real business results.
+
+Before this, I was in oncology marketing at Amgen, where I got exposure to launch planning, disease awareness campaigns, and translating clinical data into practical messaging. Over time, I realized that the part I enjoy most is the commercial and customer-facing side, especially understanding what is happening in the market, engaging stakeholders, and helping drive growth. That’s why this Medical Representative role feels like a natural next step for me.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-1">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-1">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-1" data-storage-key="servier-notes-1" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-1">Clear notes</button>
+            </div>
+          </div>
+          <div class="coaching">Keep it warm and steady. The key message is: pharma background, commercial exposure, and readiness for a field-facing role.</div>
+        </div>
+      </article>
+    
+      <article class="card" data-search="why servier why this company french research driven medical progress ethical products career progression" data-id="2">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Motivation</span></div>
+            <div class="question">2. Why do you want to join Servier?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-2">
+          <div class="editor-block">
+            <label class="label" for="answerText-2">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-2" data-storage-key="servier-answer-2" data-default="What stands out to me about Servier is that it is a research-driven company with a strong patient-centered focus, and I like that balance between science and commercial execution. I’m also drawn to the fact that the role is not just about selling. It involves quality engagement with healthcare professionals, CME activities, digital touchpoints, and building something long term in the territory.
+
+I’m also looking for a place where I can keep growing. From what I’ve seen, Servier values development and gives people room to progress if they perform well, and that’s something I find very motivating.">What stands out to me about Servier is that it is a research-driven company with a strong patient-centered focus, and I like that balance between science and commercial execution. I’m also drawn to the fact that the role is not just about selling. It involves quality engagement with healthcare professionals, CME activities, digital touchpoints, and building something long term in the territory.
+
+I’m also looking for a place where I can keep growing. From what I’ve seen, Servier values development and gives people room to progress if they perform well, and that’s something I find very motivating.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-2">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-2">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-2" data-storage-key="servier-notes-2" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-2">Clear notes</button>
+            </div>
+          </div>
+          <div class="coaching">If you want, add one genuine line about wanting to contribute to better patient outcomes through stronger HCP engagement.</div>
+        </div>
+      </article>
+    
+      <article class="card" data-search="why medical representative why sales why leave marketing move from marketing to field commercial" data-id="3">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Career Shift</span></div>
+            <div class="question">3. Why do you want to move from marketing into a Medical Representative role?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-3">
+          <div class="editor-block">
+            <label class="label" for="answerText-3">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-3" data-storage-key="servier-answer-3" data-default="Marketing gave me a strong foundation in strategy, brand thinking, and understanding the market, but over time I found myself most energized by the parts that were closer to the customer, like joint calls, HCP engagement, discussing treatment gaps, and seeing how field execution affects uptake very directly.
+
+So for me, this move feels intentional. I’m not moving away from what I’ve built. I’m building on it. I want to be in a role where I can take more ownership of relationships, territory performance, and day-to-day execution in the field.">Marketing gave me a strong foundation in strategy, brand thinking, and understanding the market, but over time I found myself most energized by the parts that were closer to the customer, like joint calls, HCP engagement, discussing treatment gaps, and seeing how field execution affects uptake very directly.
+
+So for me, this move feels intentional. I’m not moving away from what I’ve built. I’m building on it. I want to be in a role where I can take more ownership of relationships, territory performance, and day-to-day execution in the field.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-3">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-3">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-3" data-storage-key="servier-notes-3" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-3">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="no sales experience direct sales experience why should we hire you joint calls commercial experience" data-id="4">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Tough Question</span></div>
+            <div class="question">4. You don’t have direct sales experience. Why should we hire you?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-4">
+          <div class="editor-block">
+            <label class="label" for="answerText-4">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-4" data-storage-key="servier-answer-4" data-default="That’s fair, and I know I’m not coming from the most traditional route. But I do think I bring very relevant commercial experience. In my current role, I work on brand performance, sales analysis, HCP engagement, joint calls, events, budget planning, and initiatives that are meant to drive uptake and growth. So while my title is in marketing, the work itself is already very commercially grounded.
+
+I also think I bring a useful mix of scientific understanding, communication skills, and willingness to learn. I’m coachable, I’m comfortable being measured on results, and I’m genuinely motivated to prove myself in a field role.">That’s fair, and I know I’m not coming from the most traditional route. But I do think I bring very relevant commercial experience. In my current role, I work on brand performance, sales analysis, HCP engagement, joint calls, events, budget planning, and initiatives that are meant to drive uptake and growth. So while my title is in marketing, the work itself is already very commercially grounded.
+
+I also think I bring a useful mix of scientific understanding, communication skills, and willingness to learn. I’m coachable, I’m comfortable being measured on results, and I’m genuinely motivated to prove myself in a field role.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-4">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-4">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-4" data-storage-key="servier-notes-4" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-4">Clear notes</button>
+            </div>
+          </div>
+          <div class="coaching">Answer this confidently. Do not sound apologetic.</div>
+        </div>
+      </article>
+    
+      <article class="card" data-search="why leaving abbott current company leave reasons positive" data-id="5">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Transition</span></div>
+            <div class="question">5. Why are you leaving Abbott?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-5">
+          <div class="editor-block">
+            <label class="label" for="answerText-5">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-5" data-storage-key="servier-answer-5" data-default="I’ve learned a lot at Abbott, especially in brand management, analytics, stakeholder coordination, and HCP-related work, and I’m genuinely grateful for that experience. At this stage, though, I’m looking for a role that gives me more direct ownership on the field side, especially building relationships in the territory and driving results more directly.
+
+So for me, it’s really about growth and direction rather than leaving because of anything negative.">I’ve learned a lot at Abbott, especially in brand management, analytics, stakeholder coordination, and HCP-related work, and I’m genuinely grateful for that experience. At this stage, though, I’m looking for a role that gives me more direct ownership on the field side, especially building relationships in the territory and driving results more directly.
+
+So for me, it’s really about growth and direction rather than leaving because of anything negative.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-5">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-5">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-5" data-storage-key="servier-notes-5" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-5">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="understanding of role what is medical representative quality calls cme omnichannel territory" data-id="6">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Role Understanding</span></div>
+            <div class="question">6. What do you think makes a good Medical Representative?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-6">
+          <div class="editor-block">
+            <label class="label" for="answerText-6">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-6" data-storage-key="servier-answer-6" data-default="I think a good Medical Representative is someone who can balance relationship-building with discipline and execution. It’s not enough to be friendly. You need to be prepared, know your product well, understand your territory, and make each interaction meaningful.
+
+I also think credibility matters a lot in pharma. Doctors need to feel that you are accurate, professional, respectful of their time, and able to bring something relevant rather than just repeating a script. Over time, consistency is what really builds trust.">I think a good Medical Representative is someone who can balance relationship-building with discipline and execution. It’s not enough to be friendly. You need to be prepared, know your product well, understand your territory, and make each interaction meaningful.
+
+I also think credibility matters a lot in pharma. Doctors need to feel that you are accurate, professional, respectful of their time, and able to bring something relevant rather than just repeating a script. Over time, consistency is what really builds trust.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-6">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-6">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-6" data-storage-key="servier-notes-6" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-6">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="joint calls what did you learn field exposure hcp doctor interactions" data-id="7">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Field Exposure</span></div>
+            <div class="question">7. What did you learn from doing joint calls with sales teams?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-7">
+          <div class="editor-block">
+            <label class="label" for="answerText-7">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-7" data-storage-key="servier-answer-7" data-default="One thing I learned is that good calls are usually very focused. The best interactions weren’t the ones where the rep said the most. They were the ones where the rep understood the doctor, knew what message was most relevant, and kept the conversation concise and useful.
+
+I also saw how important follow-up is. One call alone often isn’t enough. It’s the consistency, the relevance of the messaging, and the relationship over time that really make a difference.">One thing I learned is that good calls are usually very focused. The best interactions weren’t the ones where the rep said the most. They were the ones where the rep understood the doctor, knew what message was most relevant, and kept the conversation concise and useful.
+
+I also saw how important follow-up is. One call alone often isn’t enough. It’s the consistency, the relevance of the messaging, and the relationship over time that really make a difference.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-7">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-7">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-7" data-storage-key="servier-notes-7" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-7">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="achievement biggest achievement abbott 35 new accounts double digit growth" data-id="8">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Achievement</span></div>
+            <div class="question">8. What’s an achievement you’re especially proud of?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-8">
+          <div class="editor-block">
+            <label class="label" for="answerText-8">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-8" data-storage-key="servier-answer-8" data-default="One achievement I’m proud of is my work on the GI brand I currently manage. Even with a limited budget, I was involved in analyzing performance, planning initiatives, creating materials from scratch, and supporting engagement efforts that helped secure more than 35 new accounts and contributed to double-digit growth in 2025.
+
+What I’m proud of is not just the number. It’s that the result came from being resourceful, staying close to the market, and making thoughtful decisions about where to focus effort.">One achievement I’m proud of is my work on the GI brand I currently manage. Even with a limited budget, I was involved in analyzing performance, planning initiatives, creating materials from scratch, and supporting engagement efforts that helped secure more than 35 new accounts and contributed to double-digit growth in 2025.
+
+What I’m proud of is not just the number. It’s that the result came from being resourceful, staying close to the market, and making thoughtful decisions about where to focus effort.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-8">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-8">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-8" data-storage-key="servier-notes-8" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-8">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="data analysis iqvia internal sales dashboard decision making" data-id="9">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Analytics</span></div>
+            <div class="question">9. Tell me about a time you used data to make a better decision.</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-9">
+          <div class="editor-block">
+            <label class="label" for="answerText-9">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-9" data-storage-key="servier-answer-9" data-default="A lot of my current role involves analyzing IQVIA and internal sales data across brands. I use that information to spot trends, understand where performance is stronger or weaker, and help shape what we prioritize next.
+
+For example, when certain segments or accounts show stronger opportunity, that helps guide where we should focus our efforts instead of spreading resources too thin. I like using data because it gives direction and makes decisions more grounded.">A lot of my current role involves analyzing IQVIA and internal sales data across brands. I use that information to spot trends, understand where performance is stronger or weaker, and help shape what we prioritize next.
+
+For example, when certain segments or accounts show stronger opportunity, that helps guide where we should focus our efforts instead of spreading resources too thin. I like using data because it gives direction and makes decisions more grounded.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-9">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-9">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-9" data-storage-key="servier-notes-9" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-9">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="new territory 30 60 90 days first 90 days territory plan kols" data-id="10">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Territory Planning</span></div>
+            <div class="question">10. How would you approach a new territory in your first 90 days?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-10">
+          <div class="editor-block">
+            <label class="label" for="answerText-10">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-10" data-storage-key="servier-answer-10" data-default="First, I’d want to understand the territory properly before forcing activity. So in the beginning I’d focus on learning the account landscape, understanding prescribing patterns, identifying key stakeholders, and getting clear on what success looks like for that territory.
+
+After that, I’d start prioritizing accounts, mapping out where the biggest opportunities are, and building a regular call plan. I’d also want to understand who the important KOLs are and where there may be untapped opportunities. I’d start with structure, then refine based on what I’m seeing in the field.">First, I’d want to understand the territory properly before forcing activity. So in the beginning I’d focus on learning the account landscape, understanding prescribing patterns, identifying key stakeholders, and getting clear on what success looks like for that territory.
+
+After that, I’d start prioritizing accounts, mapping out where the biggest opportunities are, and building a regular call plan. I’d also want to understand who the important KOLs are and where there may be untapped opportunities. I’d start with structure, then refine based on what I’m seeing in the field.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-10">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-10">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-10" data-storage-key="servier-notes-10" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-10">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="relationship building kol doctors stakeholders hcp trust" data-id="11">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Relationships</span></div>
+            <div class="question">11. How would you build relationships with doctors and KOLs?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-11">
+          <div class="editor-block">
+            <label class="label" for="answerText-11">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-11" data-storage-key="servier-answer-11" data-default="I’d start by understanding their practice and what matters to them, rather than going in with the same message for everyone. I think doctors can tell very quickly whether you’re just there to push a product or whether you’ve actually thought about how to make the conversation relevant.
+
+For me, relationship-building in pharma is really about consistency and credibility. If you show up prepared, communicate clearly, follow up properly, and respect their time, trust builds over time.">I’d start by understanding their practice and what matters to them, rather than going in with the same message for everyone. I think doctors can tell very quickly whether you’re just there to push a product or whether you’ve actually thought about how to make the conversation relevant.
+
+For me, relationship-building in pharma is really about consistency and credibility. If you show up prepared, communicate clearly, follow up properly, and respect their time, trust builds over time.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-11">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-11">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-11" data-storage-key="servier-notes-11" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-11">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="doctor too busy access issue no time hcp objection" data-id="12">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Objection Handling</span></div>
+            <div class="question">12. What would you do if a doctor is too busy to meet you?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-12">
+          <div class="editor-block">
+            <label class="label" for="answerText-12">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-12" data-storage-key="servier-answer-12" data-default="I’d respect that first. I wouldn’t try to force a conversation when the timing clearly isn’t right. I’d keep it brief, try to leave a concise and relevant point if appropriate, and understand whether there’s a better time or preferred channel for follow-up.
+
+I think persistence matters, but it has to be respectful and thoughtful. Sometimes it’s about timing rather than disinterest, so I’d stay professional and keep the relationship open.">I’d respect that first. I wouldn’t try to force a conversation when the timing clearly isn’t right. I’d keep it brief, try to leave a concise and relevant point if appropriate, and understand whether there’s a better time or preferred channel for follow-up.
+
+I think persistence matters, but it has to be respectful and thoughtful. Sometimes it’s about timing rather than disinterest, so I’d stay professional and keep the relationship open.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-12">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-12">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-12" data-storage-key="servier-notes-12" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-12">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="rejection resilience target pressure setbacks sales" data-id="13">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Resilience</span></div>
+            <div class="question">13. How do you handle rejection or setbacks?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-13">
+          <div class="editor-block">
+            <label class="label" for="answerText-13">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-13" data-storage-key="servier-answer-13" data-default="I try not to take it personally. In commercial roles, rejection is part of the job, so I prefer to treat it as feedback. Sometimes it means the timing is off, sometimes the message isn’t landing, and sometimes I just need to approach the stakeholder differently.
+
+What matters is whether I stay steady and keep learning from it. I’d rather adjust and keep moving than get discouraged by one difficult interaction.">I try not to take it personally. In commercial roles, rejection is part of the job, so I prefer to treat it as feedback. Sometimes it means the timing is off, sometimes the message isn’t landing, and sometimes I just need to approach the stakeholder differently.
+
+What matters is whether I stay steady and keep learning from it. I’d rather adjust and keep moving than get discouraged by one difficult interaction.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-13">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-13">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-13" data-storage-key="servier-notes-13" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-13">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="persuasion influence without authority cross functional collaboration" data-id="14">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Behavioral</span></div>
+            <div class="question">14. Tell me about a time you influenced others without formal authority.</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-14">
+          <div class="editor-block">
+            <label class="label" for="answerText-14">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-14" data-storage-key="servier-answer-14" data-default="In marketing, a lot of the work depends on coordination rather than authority. For example, when planning events or producing promotional materials, I often need to align sales teams, agency partners, and internal stakeholders who all have different priorities.
+
+What helped was being clear on the objective, backing recommendations with data or business rationale, and staying collaborative rather than forceful. I’ve learned that people respond better when they feel you’re trying to solve the same problem together.">In marketing, a lot of the work depends on coordination rather than authority. For example, when planning events or producing promotional materials, I often need to align sales teams, agency partners, and internal stakeholders who all have different priorities.
+
+What helped was being clear on the objective, backing recommendations with data or business rationale, and staying collaborative rather than forceful. I’ve learned that people respond better when they feel you’re trying to solve the same problem together.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-14">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-14">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-14" data-storage-key="servier-notes-14" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-14">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="omnichannel digital approach tools webinars online engagement" data-id="15">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Digital</span></div>
+            <div class="question">15. How would you use digital tools or an omnichannel approach in this role?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-15">
+          <div class="editor-block">
+            <label class="label" for="answerText-15">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-15" data-storage-key="servier-answer-15" data-default="I don’t think field engagement today is only about face-to-face visits. In-person calls are still important, especially for relationship-building, but digital touchpoints can make follow-up more consistent and more convenient when used properly.
+
+My current experience with webinars, digital content, dashboards, and online engagement has shown me that different channels work best for different purposes. I’d want to use that mix in a practical way, not just because the tool exists, but because it supports the relationship and the objective.">I don’t think field engagement today is only about face-to-face visits. In-person calls are still important, especially for relationship-building, but digital touchpoints can make follow-up more consistent and more convenient when used properly.
+
+My current experience with webinars, digital content, dashboards, and online engagement has shown me that different channels work best for different purposes. I’d want to use that mix in a practical way, not just because the tool exists, but because it supports the relationship and the objective.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-15">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-15">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-15" data-storage-key="servier-notes-15" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-15">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="budget management sap roi resource allocation" data-id="16">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Ownership</span></div>
+            <div class="question">16. How do you manage budgets or resources responsibly?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-16">
+          <div class="editor-block">
+            <label class="label" for="answerText-16">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-16" data-storage-key="servier-answer-16" data-default="In my current role, I’m involved in managing marketing budgets and SAP-related processes, and that’s taught me to think carefully about where resources should go. I try to look at both the business need and the likely impact before committing spend.
+
+I’ve also had to work within limited budgets, so I’m used to prioritizing. For me, responsible budget use means being disciplined, while also knowing when to redirect support toward higher-impact opportunities.">In my current role, I’m involved in managing marketing budgets and SAP-related processes, and that’s taught me to think carefully about where resources should go. I try to look at both the business need and the likely impact before committing spend.
+
+I’ve also had to work within limited budgets, so I’m used to prioritizing. For me, responsible budget use means being disciplined, while also knowing when to redirect support toward higher-impact opportunities.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-16">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-16">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-16" data-storage-key="servier-notes-16" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-16">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="ethical promotion compliance integrity honesty product claims" data-id="17">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Compliance</span></div>
+            <div class="question">17. What does ethical promotion mean to you?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-17">
+          <div class="editor-block">
+            <label class="label" for="answerText-17">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-17" data-storage-key="servier-answer-17" data-default="To me, ethical promotion means being accurate, responsible, and respectful of the role healthcare professionals play in patient care. It means communicating within approved messaging, representing evidence fairly, and never overstating what a product can do.
+
+I think credibility in pharma is built over time and lost very quickly, so integrity really matters. If I’m ever unsure about something, I’d rather clarify first than risk saying the wrong thing.">To me, ethical promotion means being accurate, responsible, and respectful of the role healthcare professionals play in patient care. It means communicating within approved messaging, representing evidence fairly, and never overstating what a product can do.
+
+I think credibility in pharma is built over time and lost very quickly, so integrity really matters. If I’m ever unsure about something, I’d rather clarify first than risk saying the wrong thing.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-17">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-17">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-17" data-storage-key="servier-notes-17" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-17">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="strength biggest strength scientific commercial communication" data-id="18">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Self-Awareness</span></div>
+            <div class="question">18. What’s your biggest strength?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-18">
+          <div class="editor-block">
+            <label class="label" for="answerText-18">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-18" data-storage-key="servier-answer-18" data-default="One of my biggest strengths is that I can bridge the scientific and commercial sides quite naturally. Because I’ve worked in pharmaceutical marketing and also have a scientific background, I’m comfortable understanding evidence, translating it into practical messaging, and thinking about what actually matters in the market.
+
+I’m also proactive. If I own something, I don’t like just monitoring it from a distance. I want to understand it properly and move it forward.">One of my biggest strengths is that I can bridge the scientific and commercial sides quite naturally. Because I’ve worked in pharmaceutical marketing and also have a scientific background, I’m comfortable understanding evidence, translating it into practical messaging, and thinking about what actually matters in the market.
+
+I’m also proactive. If I own something, I don’t like just monitoring it from a distance. I want to understand it properly and move it forward.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-18">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-18">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-18" data-storage-key="servier-notes-18" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-18">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="weakness perfectionism weakness honest improvement" data-id="19">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Self-Awareness</span></div>
+            <div class="question">19. What’s one weakness you’re working on?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-19">
+          <div class="editor-block">
+            <label class="label" for="answerText-19">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-19" data-storage-key="servier-answer-19" data-default="Earlier on, I had a tendency to overprepare because I wanted things to be very polished before moving. That can be useful to a point, but in a fast-moving commercial environment, I’ve learned that progress and responsiveness matter too.
+
+So what I’ve been working on is being more comfortable making decisions with good judgment, moving forward, and then refining along the way instead of waiting for everything to feel perfect first.">Earlier on, I had a tendency to overprepare because I wanted things to be very polished before moving. That can be useful to a point, but in a fast-moving commercial environment, I’ve learned that progress and responsiveness matter too.
+
+So what I’ve been working on is being more comfortable making decisions with good judgment, moving forward, and then refining along the way instead of waiting for everything to feel perfect first.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-19">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-19">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-19" data-storage-key="servier-notes-19" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-19">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="why should we hire you closing sell yourself" data-id="20">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Closing</span></div>
+            <div class="question">20. Why should we hire you?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-20">
+          <div class="editor-block">
+            <label class="label" for="answerText-20">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-20" data-storage-key="servier-answer-20" data-default="I think I bring a combination that fits this role well: pharmaceutical knowledge, strong commercial exposure, comfort working with HCP-related initiatives, and a real willingness to learn. I may not come from a traditional sales title, but I already understand how to work with data, engage stakeholders, support growth, and stay accountable to business outcomes.
+
+More importantly, I’m serious about this move. I’m not just curious about sales. I’m ready to put in the work and grow into the role properly.">I think I bring a combination that fits this role well: pharmaceutical knowledge, strong commercial exposure, comfort working with HCP-related initiatives, and a real willingness to learn. I may not come from a traditional sales title, but I already understand how to work with data, engage stakeholders, support growth, and stay accountable to business outcomes.
+
+More importantly, I’m serious about this move. I’m not just curious about sales. I’m ready to put in the work and grow into the role properly.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-20">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-20">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-20" data-storage-key="servier-notes-20" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-20">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="5 years future career progression specialist key account" data-id="21">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Future</span></div>
+            <div class="question">21. Where do you see yourself in the next 3 to 5 years?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-21">
+          <div class="editor-block">
+            <label class="label" for="answerText-21">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-21" data-storage-key="servier-answer-21" data-default="In the near term, I’d want to become a strong and dependable Medical Representative, someone who understands the territory well, builds trust with stakeholders, and delivers consistently. Once I’ve built that foundation, I’d be interested in growing into a specialist or key account role over time.
+
+For me, the first priority would really be to learn quickly, perform well, and earn that next step properly.">In the near term, I’d want to become a strong and dependable Medical Representative, someone who understands the territory well, builds trust with stakeholders, and delivers consistently. Once I’ve built that foundation, I’d be interested in growing into a specialist or key account role over time.
+
+For me, the first priority would really be to learn quickly, perform well, and earn that next step properly.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-21">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-21">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-21" data-storage-key="servier-notes-21" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-21">Clear notes</button>
+            </div>
+          </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-search="questions for interviewer ask them hiring manager what to ask" data-id="22">
+        <div class="card-head">
+          <div>
+            <div class="meta"><span class="tag">Ask Them</span></div>
+            <div class="question">22. What questions should you ask the hiring manager at the end?</div>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Reveal answer</button>
+        </div>
+        <div class="answer" id="answer-22">
+          <div class="editor-block">
+            <label class="label" for="answerText-22">Editable sample answer</label>
+            <textarea class="editor answer-editor" id="answerText-22" data-storage-key="servier-answer-22" data-default="A few good options are: “From your perspective, what usually distinguishes the stronger performers in this role?” “What are the main opportunities or challenges in the territory I’d be covering?” “How do you typically coach someone coming from a marketing background into a more field-based commercial role?” and “What would success in the first 6 months look like?”
+
+You don’t need to ask all of them. Pick two or three that feel most natural to you.">A few good options are: “From your perspective, what usually distinguishes the stronger performers in this role?” “What are the main opportunities or challenges in the territory I’d be covering?” “How do you typically coach someone coming from a marketing background into a more field-based commercial role?” and “What would success in the first 6 months look like?”
+
+You don’t need to ask all of them. Pick two or three that feel most natural to you.</textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Auto-saves in this browser. Works on GitHub Pages via local storage.</span>
+              <button class="mini-btn reset-answer" type="button" data-target="answerText-22">Reset sample answer</button>
+            </div>
+          </div>
+          <div class="editor-block notes-block">
+            <label class="label" for="notesText-22">Your notes / comments</label>
+            <textarea class="editor notes-editor" id="notesText-22" data-storage-key="servier-notes-22" placeholder="Write your own version, examples, stories, or reminders here..."></textarea>
+            <div class="editor-actions">
+              <span class="save-hint">Use this for keywords, STAR points, numbers, and personal phrasing.</span>
+              <button class="mini-btn clear-notes" type="button" data-target="notesText-22">Clear notes</button>
+            </div>
+          </div>
+          <div class="coaching">Ask naturally, not like you are reading from a checklist.</div>
+        </div>
+      </article>
+    
+    </div>
+
+    <p class="footer-note">
+      Best way to practise: answer out loud first, then reveal the sample answer, edit it until it sounds like you, and save the version you want to use.
+    </p>
+  </div>
+
+  <script>
+    const toggles = document.querySelectorAll('.toggle');
+    const answers = document.querySelectorAll('.answer');
+    const cards = document.querySelectorAll('.card');
+    const searchBox = document.getElementById('searchBox');
+    const revealAllBtn = document.getElementById('revealAll');
+    const hideAllBtn = document.getElementById('hideAll');
+    const resetAllBtn = document.getElementById('resetAll');
+    const editors = document.querySelectorAll('[data-storage-key]');
+
+    function saveValue(el) {
+      try {
+        localStorage.setItem(el.dataset.storageKey, el.value);
+      } catch (e) {
+        console.warn('Could not save to localStorage', e);
+      }
+    }
+
+    function loadValue(el) {
+      try {
+        const saved = localStorage.getItem(el.dataset.storageKey);
+        if (saved !== null) el.value = saved;
+      } catch (e) {
+        console.warn('Could not load from localStorage', e);
+      }
+    }
+
+    function resetEditor(el) {
+      const defaultValue = el.dataset.default || '';
+      el.value = defaultValue;
+      saveValue(el);
+    }
+
+    editors.forEach((el) => {
+      loadValue(el);
+      el.addEventListener('input', () => saveValue(el));
+    });
+
+    toggles.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = btn.closest('.card').querySelector('.answer');
+        const isOpen = answer.classList.contains('open');
+        answer.classList.toggle('open', !isOpen);
+        btn.textContent = isOpen ? 'Reveal answer' : 'Hide answer';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+
+    revealAllBtn.addEventListener('click', () => {
+      answers.forEach(a => a.classList.add('open'));
+      toggles.forEach(b => {
+        b.textContent = 'Hide answer';
+        b.setAttribute('aria-expanded', 'true');
+      });
+    });
+
+    hideAllBtn.addEventListener('click', () => {
+      answers.forEach(a => a.classList.remove('open'));
+      toggles.forEach(b => {
+        b.textContent = 'Reveal answer';
+        b.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    searchBox.addEventListener('input', () => {
+      const term = searchBox.value.trim().toLowerCase();
+      cards.forEach(card => {
+        const haystack = (card.dataset.search + ' ' + card.innerText).toLowerCase();
+        card.classList.toggle('hidden', term && !haystack.includes(term));
+      });
+    });
+
+    document.querySelectorAll('.reset-answer').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        if (target) resetEditor(target);
+      });
+    });
+
+    document.querySelectorAll('.clear-notes').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        if (!target) return;
+        target.value = '';
+        saveValue(target);
+      });
+    });
+
+    resetAllBtn.addEventListener('click', () => {
+      if (!confirm('Reset all edited answers and notes on this device?')) return;
+      editors.forEach((el) => {
+        if (el.classList.contains('answer-editor')) {
+          resetEditor(el);
+        } else {
+          el.value = '';
+          saveValue(el);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
